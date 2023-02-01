@@ -6,21 +6,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio-News</title>
+
+    <!-- Tailwind CSS {temporary}  -->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <!-- CSS FILE-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <header>
+    <nav class="topnav">
+        <h1>Audio News</h1>
+        <p style="text-align: center; font-size: 30px; "> PAGE UNDER HEAVY DEVELOPMENT !!!</p>
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <input type="text" placeholder=" Find articles. . .">
+        <button class="search-button"> Search </button>
+    </nav>
 
-    </header>
+    <main>
+        <section class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+            <article id="article1" class="rounded overflow-hidden shadow-lg newscards">
+                <img class="w-full" src="assets/images/test-image1.jpg" alt="testimage">
+                <div class="px-6 py-4">
+                    <h2 class="font-bold text-xl mb-2">Article 1</h2>
+                    <p class="text-gray-700 text-base article-desc1">
+                        orem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium.
+
+                    </p>
+                </div>
+            </article>
+
+            <article id="article2" class="rounded overflow-hidden shadow-lg newscards">
+                <img class="w-full" src="assets/images/test-image2.jpg" alt="testimage">
+                <div class="px-6 py-4 article1">
+                    <h2 class="font-bold text-xl mb-2">Article 2</h2>
+                    <p class="text-gray-700 text-base article-desc2">
+                        orem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium.
+
+                    </p>
+                </div>
+            </article>
+
+            <article id="article3" class="rounded overflow-hidden shadow-lg newscards">
+                <img class="w-full" src="assets/images/test-image3.jpg" alt="testimage">
+                <div class="px-6 py-4 article1">
+                    <h2 class="font-bold text-xl mb-2">Article 3</h2>
+                    <p class="text-gray-700 text-base article-desc3">
+                        orem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium.
+                    </p>
+                </div>
+            </article>
+        </section>
+    </main>
 
 
-
-
-
-    <script src="script.js"></script>
+    <!-- JAVASCRIPT FILE-->
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
