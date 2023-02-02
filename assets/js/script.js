@@ -47,3 +47,28 @@ function getNewsArticles(data) {
         var articleImgUrl = articles[i]["image"];
     }
 }
+
+var main = $();
+main.on("click", "", function (event) {
+//Gets the body elements of the article that is selected
+    var selectedArticle = $(event.currentTarget).children();
+//Gets the description text of the selected article
+    var selectedDescText = selectedArticle.children().text();
+    fetchTTS(selectedDescText);
+});
+
+/* Fetches VoiceRSS Text-to-Speech API with the selected article's description text as a query parameter.
+The function generates an audio format in the browser window which plays a voice reading the selected article's description*/
+function fetchTTS(text) {
+  const API_KEY = "e5bd0e9876784ba4b37cb873babe6e39";
+  const voice = "en-gb";
+  const format = "MP3";
+  const speed = 0;
+  const requestUrl = `http://api.voicerss.org/?key=${API_KEY}&src=${text}&hl=${voice}&c=${format}&f=44khz_16bit_stereo&r=${speed}`;
+
+  const audio = new Audio(requestUrl);
+  audio.play();
+}
+
+/* Runs the userFormSubmit function when the form on the screen is submitted */
+userTopicForm.submit(userFormSubmit);
