@@ -51,7 +51,10 @@ function getNewsArticles(data) {
     }
 }
 
+//TODO: Add query selector to get parent element where the articles are going to be added in. This is because we 
+//will use event delegation since the articles will only be added when the user submits the form
 var main = $();
+//TODO: Add class element of the article that is going to be clicked on
 main.on("click", "", function (event) {
 //Gets the body elements of the article that is selected
     var selectedArticle = $(event.currentTarget).children();
