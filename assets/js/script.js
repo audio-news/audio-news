@@ -44,6 +44,7 @@ function getNewsArticles(data) {
     console.log(data);
     var articles = data.articles;
     for (i = 0; i < articles.length; i++) {
+        //TODO: Add query selectors to place article data into the DOM to be displayed on the screen
         var articleTitle = articles[i]["title"];
         var articleDesc = articles[i]["description"];
         var articleImgUrl = articles[i]["image"];
