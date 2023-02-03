@@ -118,26 +118,22 @@ h4 {
 .item-1 {
     z-index: 2;
     opacity: 1;
-    background: url('../images/test-image1.jpg')
+    background-size: cover;
 }
 
 .item-2 {
-    background: url('../images/test-image2.jpg');
     background-size: cover;
 }
 
 .item-3 {
-    background: url('../images/test-image3.jpg');
     background-size: cover;
 }
 
 .item-4 {
-    background: url('../images/test-image3.jpg');
     background-size: cover;
 }
 
 .item-5 {
-    background: url('../images/test-image3.jpg');
     background-size: cover;
 }
 
@@ -151,7 +147,9 @@ h4 {
 }
 
 #item-2:target~.item-2,
-#item-3:target~.item-3 {
+#item-3:target~.item-3,
+#item-4:target~.item-4,
+#item-5:target~.item-5 {
     z-index: 3;
     opacity: 1;
 }
