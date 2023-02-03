@@ -1,7 +1,7 @@
 //TODO: Add query selector for form in HTML DOM. This is so we can add an event listener for when the form is submitted
-var userTopicForm = $(".searchBox");
+var userTopicForm = $();
 //TODO: Add query selector for text input in form. This is so we can extract the text inputted by the user
-var userTopicSelect = $("#user-input");
+var userTopicSelect = $();
 
 /* Checks to see if user placed an entry when submitting the form. If an entry was 
 placed, then call the getNewsData function to fetch the data with gnews API */
@@ -11,7 +11,7 @@ function userFormSubmit(event) {
   const topic = userTopicSelect.val();
   if (topic) {
     getNewsData(topic);
-    userTopicSelect.val("");
+    topic.val("");
   } else {
     alert("Please enter a topic");
   }
@@ -22,7 +22,7 @@ If not it catches the error. Once the fetch promise is retrieved, check the stat
 If the status is ok, calls getNewsArticles function to extract desired data*/
 function getNewsData(topic) {
   const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
-  const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
+  const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=10`;
 
   fetch(newsurl)
     .then(function (response) {
@@ -43,14 +43,11 @@ function getNewsData(topic) {
 function getNewsArticles(data) {
     console.log(data);
     var articles = data.articles;
-    for (var i = 0; i < articles.length; i++) {
-      //TODO: Add query selectors to place article data into the DOM to be displayed on the screen
-      var articleTitle = articles[i]["title"];
-      var articleDesc = articles[i]["description"];
-      var articleImgUrl = articles[i]["image"];
-
-      var carouselCard = $(`.item-${i + 1}`);
-      carouselCard.css("background-image", `url("${articleImgUrl}")`);
+    for (i = 0; i < articles.length; i++) {
+        //TODO: Add query selectors to place article data into the DOM to be displayed on the screen
+        var articleTitle = articles[i]["title"];
+        var articleDesc = articles[i]["description"];
+        var articleImgUrl = articles[i]["image"];
     }
 }
 
