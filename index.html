@@ -16,32 +16,33 @@
   </head>
 
   <body>
-    <nav class="topnav">
-      <h1>Audio News</h1>
-      <p style="text-align: center; font-size: 30px">
+    <!-- Added Bulma to style header -->
+    <header class="hero is-link">
+      <h1 class="hero-body title">Audio News</h1>
+      <p style="text-align: center; font-size: 1rem">
         PAGE UNDER HEAVY DEVELOPMENT !!!
       </p>
-    </nav>
+    </header>
 
-    <!-- Added Bulma to style sidebar as menu -->
+    <!-- Styled sidebar as menu -->
     <aside class="menu sideBar">
-      <p class="menu-label">Find your news</p>
       <!-- Search Box-->
-      <div class="searchBox">
+      <div class="menu-list searchBox">
+        <p class="menu-label">Find your news</p>
         <input class="input" type="text" placeholder="Find articles. . ." />
         <button class="button search-button is-link">Search</button>
       </div>
-
+      <!-- Suggested Searches -->
       <ol class="menu-list">
         <li>
-          <!-- activate on click -->
-          <a class="is-active">Suggested Searches</a>
+          <p class="menu-label">Suggested Searches</p>
           <ul>
             <li><a>Breaking News</a></li>
             <li><a>Sports</a></li>
             <li><a>Finance</a></li>
           </ul>
         </li>
+        <!-- Related Links -->
         <li><a class="active">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -49,7 +50,7 @@
     </aside>
 
     <main>
-      <!-- change carousel items to cards -->
+      <!-- Changed carousel items to cards -->
       <h4>This is a test</h4>
       <div class="carousel-wrapper card">
         <span id="item-1"></span>
@@ -61,12 +62,12 @@
         <div class="carousel-item item-1 card">
           <!-- Article Title -->
           <div class="card-header-title is-centered has-background-white">
-            Title 1
+            Example Title
           </div>
           <!-- <div class="card-image">
-            <figure class="image is-2by1">
+            <figure class="image">
               <img
-                src="https://bulma.io/images/placeholders/1280x960.png"
+                src="../assets/images/test-image1.jpg"
                 alt="Placeholder image"
               />
             </figure>
@@ -78,7 +79,7 @@
 
         <div class="carousel-item item-2 card">
           <div class="card-header-title is-centered has-background-white">
-            Title 2
+            Example Title
           </div>
           <a href="#item-1" class="arrow-prev arrow"></a>
           <a href="#item-3" class="arrow-next arrow"></a>
@@ -86,20 +87,24 @@
 
         <div class="carousel-item item-3 card">
           <div class="card-header-title is-centered has-background-white">
-            Title 3
+            Example Title
           </div>
           <a href="#item-2" class="arrow-prev arrow"></a>
           <a href="#item-1" class="arrow-next arrow"></a>
         </div>
 
         <div class="carousel-item item-4 card">
-          <div class="card-header-title is-centered has-background-white"></div>
+          <div class="card-header-title is-centered has-background-white">
+            Example Title
+          </div>
           <a href="#item-2" class="arrow-prev arrow"></a>
           <a href="#item-1" class="arrow-next arrow"></a>
         </div>
 
         <div class="carousel-item item-5 card">
-          <div class="card-header-title is-centered has-background-white"></div>
+          <div class="card-header-title is-centered has-background-white">
+            Example Title
+          </div>
           <a href="#item-2" class="arrow-prev arrow"></a>
           <a href="#item-1" class="arrow-next arrow"></a>
         </div>
