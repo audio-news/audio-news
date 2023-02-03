@@ -30,7 +30,7 @@ body {
   box-shadow: 0 0 5px black;
   position: absolute;
   left: 0px;
-  text-align: center;
+  /* text-align: center; */
   z-index: 1;
   right: 50px;
 }
@@ -52,8 +52,13 @@ body {
   border-radius: 20px;
   width: 100px;
   margin-top: 3px;
+  margin-bottom: 3px;
   color: white;
-  background-color: blue;
+  /* background-color: blue; */
+}
+
+.searchBox {
+  margin: auto;
 }
 
 /*Carousel*/
@@ -82,7 +87,7 @@ h4 {
   bottom: 0;
   left: 0;
   right: 0;
-  /* padding: 25px 50px; */
+  /* padding: 25px 25px; */
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }

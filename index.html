@@ -23,22 +23,30 @@
       </p>
     </nav>
 
-    <div class="sideBar">
+    <!-- Added Bulma to style sidebar as menu -->
+    <aside class="menu sideBar">
+      <p class="menu-label">Find your news</p>
+      <!-- Search Box-->
       <div class="searchBox">
-        <input type="text" placeholder=" Find articles. . ." />
-        <button class="search-button">Search</button>
+        <input class="input" type="text" placeholder="Find articles. . ." />
+        <button class="button search-button is-link">Search</button>
       </div>
-      <ol class="newsTags">
-        <li class="tag1">Tag 1</li>
-        <li class="tag2">Tag 2</li>
-        <li class="tag3">Tag 3</li>
+
+      <ol class="menu-list">
+        <li>
+          <!-- activate on click -->
+          <a class="is-active">Suggested Searches</a>
+          <ul>
+            <li><a>Breaking News</a></li>
+            <li><a>Sports</a></li>
+            <li><a>Finance</a></li>
+          </ul>
+        </li>
+        <li><a class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ol>
-      <ol class="sideList">
-        <li class="active" href="#home">Home</li>
-        <li href="#about">About</li>
-        <li href="#contact">Contact</li>
-      </ol>
-    </div>
+    </aside>
 
     <main>
       <!-- change carousel items to cards -->
