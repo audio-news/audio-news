@@ -21,11 +21,53 @@
         <a class="active" href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <input type="text" placeholder=" Find articles. . .">
+        <input id="value-search" type="text" placeholder=" Find articles. . .">
         <button class="search-button"> Search </button>
     </nav>
 
     <main>
+        <h4> This is a test</h4>
+        <div class="carousel-wrapper">
+            <span id="item-1"></span>
+            <span id="item-2"></span>
+            <span id="item-3"></span>
+            <div class="carousel-item item-1">
+
+                <a href="#item-3" class="arrow-prev arrow"></a>
+                <a href="#item-2" class="arrow-next arrow"></a>
+            </div>
+
+            <div class="carousel-item item-2">
+                <a href="#item-1" class="arrow-prev arrow"></a>
+                <a href="#item-3" class="arrow-next arrow"></a>
+            </div>
+
+            <div class="carousel-item item-3">
+                <a href="#item-2" class="arrow-prev arrow"></a>
+                <a href="#item-1" class="arrow-next arrow"></a>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <section class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
             <article id="article1" class="rounded overflow-hidden shadow-lg newscards">
                 <img class="w-full" src="assets/images/test-image1.jpg" alt="testimage">
@@ -67,6 +109,8 @@
         </section>
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"> </script>
 
     <!-- JAVASCRIPT FILE-->
     <script src="assets/js/script.js"></script>
