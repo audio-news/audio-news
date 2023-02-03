@@ -1,124 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Audio-News</title>
 
-    <!-- Tailwind CSS {temporary}  -->
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Bulma CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
     <!-- CSS FILE-->
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
-<body>
-
+  <body>
     <nav class="topnav">
-        <h1>Audio News</h1>
-        <p style="text-align: center; font-size: 30px; "> PAGE UNDER HEAVY DEVELOPMENT !!!</p>
+      <h1>Audio News</h1>
+      <p style="text-align: center; font-size: 30px">
+        PAGE UNDER HEAVY DEVELOPMENT !!!
+      </p>
     </nav>
 
     <div class="sideBar">
-        <div class="searchBox">
-            <input type="text" placeholder=" Find articles. . .">
-            <button class="search-button"> Search </button>
-        </div>
-            <ol class="newsTags">
-                <li class="tag1">Tag 1</li>
-                <li class="tag2">Tag 2</li>
-                <li class="tag3">Tag 3</li>
-            </ol>
-            <ol class="sideList">
-                <li class="active" href="#home">Home</li>
-                <li href="#about">About</li>
-                <li href="#contact">Contact</li>
-            </ol>
+      <div class="searchBox">
+        <input type="text" placeholder=" Find articles. . ." />
+        <button class="search-button">Search</button>
+      </div>
+      <ol class="newsTags">
+        <li class="tag1">Tag 1</li>
+        <li class="tag2">Tag 2</li>
+        <li class="tag3">Tag 3</li>
+      </ol>
+      <ol class="sideList">
+        <li class="active" href="#home">Home</li>
+        <li href="#about">About</li>
+        <li href="#contact">Contact</li>
+      </ol>
     </div>
 
     <main>
-        <h4> This is a test</h4>
-        <div class="carousel-wrapper">
-            <span id="item-1"></span>
-            <span id="item-2"></span>
-            <span id="item-3"></span>
-            <span id="item-4"></span>
-            <span id="item-5"></span>
-            <div class="carousel-item item-1">
+      <!-- change carousel items to cards -->
+      <h4>This is a test</h4>
+      <div class="carousel-wrapper card">
+        <span id="item-1"></span>
+        <span id="item-2"></span>
+        <span id="item-3"></span>
+        <span id="item-4"></span>
+        <span id="item-5"></span>
 
-                <a href="#item-3" class="arrow-prev arrow"></a>
-                <a href="#item-2" class="arrow-next arrow"></a>
-            </div>
-
-            <div class="carousel-item item-2">
-                <a href="#item-1" class="arrow-prev arrow"></a>
-                <a href="#item-3" class="arrow-next arrow"></a>
-            </div>
-
-            <div class="carousel-item item-3">
-                <a href="#item-2" class="arrow-prev arrow"></a>
-                <a href="#item-1" class="arrow-next arrow"></a>
-            </div>
-
-            <div class="carousel-item item-4">
-                <a href="#item-2" class="arrow-prev arrow"></a>
-                <a href="#item-1" class="arrow-next arrow"></a>
-            </div>
-
-            <div class="carousel-item item-5">
-                <a href="#item-2" class="arrow-prev arrow"></a>
-                <a href="#item-1" class="arrow-next arrow"></a>
-            </div>
+        <div class="carousel-item item-1 card">
+          <!-- Article Title -->
+          <div class="card-header-title is-centered has-background-white">
+            Title 1
+          </div>
+          <!-- <div class="card-image">
+            <figure class="image is-2by1">
+              <img
+                src="https://bulma.io/images/placeholders/1280x960.png"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div> -->
+          <!-- possible to replace these with bulma icon elements for better visibility -->
+          <a href="#item-3" class="arrow-prev arrow"></a>
+          <a href="#item-2" class="arrow-next arrow"></a>
         </div>
 
-        <section class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"> <!--Uses Tailwind-->
-            <article id="article1" class="rounded overflow-hidden shadow-lg newscards"> <!--Uses Tailwind-->
-                <!--Uses Tailwind-->
-                <img class="w-full"  src="assets/images/test-image1.jpg" alt="testimage">
-                <div class="px-6 py-4">
-                    <h2 class="font-bold text-xl mb-2">Article 1</h2>
-                    <p class="text-gray-700 text-base article-desc1"> 
-                        orem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium.
+        <div class="carousel-item item-2 card">
+          <div class="card-header-title is-centered has-background-white">
+            Title 2
+          </div>
+          <a href="#item-1" class="arrow-prev arrow"></a>
+          <a href="#item-3" class="arrow-next arrow"></a>
+        </div>
 
-                    </p>
-                </div>
-            </article>
+        <div class="carousel-item item-3 card">
+          <div class="card-header-title is-centered has-background-white">
+            Title 3
+          </div>
+          <a href="#item-2" class="arrow-prev arrow"></a>
+          <a href="#item-1" class="arrow-next arrow"></a>
+        </div>
 
-            <article id="article2" class="rounded overflow-hidden shadow-lg newscards"> <!--Uses Tailwind-->
-                <img class="w-full" src="assets/images/test-image2.jpg" alt="testimage">
-                <div class="px-6 py-4 article1">
-                    <h2 class="font-bold text-xl mb-2">Article 2</h2>
-                    <p class="text-gray-700 text-base article-desc2">
-                        orem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium.
+        <div class="carousel-item item-4 card">
+          <div class="card-header-title is-centered has-background-white"></div>
+          <a href="#item-2" class="arrow-prev arrow"></a>
+          <a href="#item-1" class="arrow-next arrow"></a>
+        </div>
 
-                    </p>
-                </div>
-            </article>
+        <div class="carousel-item item-5 card">
+          <div class="card-header-title is-centered has-background-white"></div>
+          <a href="#item-2" class="arrow-prev arrow"></a>
+          <a href="#item-1" class="arrow-next arrow"></a>
+        </div>
+      </div>
 
-            <article id="article3" class="rounded overflow-hidden shadow-lg newscards">
-                <img class="w-full" src="assets/images/test-image3.jpg" alt="testimage">
-                <div class="px-6 py-4 article1">
-                    <h2 class="font-bold text-xl mb-2">Article 3</h2>
-                    <p class="text-gray-700 text-base article-desc3">
-                        orem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium.
-                    </p>
-                </div>
-            </article>
-        </section>
+      <section
+        class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"
+      >
+        <!--Uses Tailwind-->
+        <article
+          id="article1"
+          class="rounded overflow-hidden shadow-lg newscards"
+        >
+          <!--Uses Tailwind-->
+          <!--Uses Tailwind-->
+          <img
+            class="w-full"
+            src="assets/images/test-image1.jpg"
+            alt="testimage"
+          />
+          <div class="px-6 py-4">
+            <h2 class="font-bold text-xl mb-2">Article 1</h2>
+            <p class="text-gray-700 text-base article-desc1">
+              orem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
+              fugiat iusto fuga praesentium.
+            </p>
+          </div>
+        </article>
+
+        <article
+          id="article2"
+          class="rounded overflow-hidden shadow-lg newscards"
+        >
+          <!--Uses Tailwind-->
+          <img
+            class="w-full"
+            src="assets/images/test-image2.jpg"
+            alt="testimage"
+          />
+          <div class="px-6 py-4 article1">
+            <h2 class="font-bold text-xl mb-2">Article 2</h2>
+            <p class="text-gray-700 text-base article-desc2">
+              orem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
+              fugiat iusto fuga praesentium.
+            </p>
+          </div>
+        </article>
+
+        <article
+          id="article3"
+          class="rounded overflow-hidden shadow-lg newscards"
+        >
+          <img
+            class="w-full"
+            src="assets/images/test-image3.jpg"
+            alt="testimage"
+          />
+          <div class="px-6 py-4 article1">
+            <h2 class="font-bold text-xl mb-2">Article 3</h2>
+            <p class="text-gray-700 text-base article-desc3">
+              orem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
+              fugiat iusto fuga praesentium.
+            </p>
+          </div>
+        </article>
+      </section>
     </main>
     <!-- JQUERY-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"> </script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
 
     <!-- JAVASCRIPT FILE-->
     <script src="assets/js/script.js"></script>
-</body>
-
+  </body>
 </html>

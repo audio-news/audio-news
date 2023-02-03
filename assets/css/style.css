@@ -1,18 +1,18 @@
 /* Universal Selectors */
 h1 {
-    text-align: center;
-    font-size: 80px;
-    font-weight: bold;
+  text-align: center;
+  font-size: 80px;
+  font-weight: bold;
 }
 
 nav {
-    background-color: rgb(169, 169, 224);
+  background-color: rgb(169, 169, 224);
 }
 
 nav a {
-    margin-left: 2%;
-    font-size: 25px;
-    color: rgb(0, 0, 0);
+  margin-left: 2%;
+  font-size: 25px;
+  color: rgb(0, 0, 0);
 }
 
 /*
@@ -23,135 +23,131 @@ body {
 
 /* Class selectors */
 .sideBar {
-    width: 100%;
-    min-height: 100%;
-    max-width: 250px;
-    background-color: aliceblue;
-    box-shadow: 0 0 5px black;
-    position: absolute;
-    left: 0px;
-    text-align: center;
-    z-index: 1;
-    right: 50px;
+  width: 100%;
+  min-height: 100%;
+  max-width: 250px;
+  background-color: aliceblue;
+  box-shadow: 0 0 5px black;
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  z-index: 1;
+  right: 50px;
 }
 
-.sideList .newsTags{
-    list-style-type: none;
-    padding: 1em;
-    margin: 0;
-    flex: 1;
+.sideList .newsTags {
+  list-style-type: none;
+  padding: 1em;
+  margin: 0;
+  flex: 1;
 }
 
 .newscards {
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
 
 .search-button {
-    display: inline-block;
-    font-size: 15px;
-    border-radius: 20px;
-    width: 100px;
-    margin-top: 3px;
-    color: white;
-    background-color: blue;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 20px;
+  width: 100px;
+  margin-top: 3px;
+  color: white;
+  background-color: blue;
 }
-
 
 /*Carousel*/
 
-
 h4 {
-    font-size: 54px;
-    text-transform: uppercase;
-    text-align: center;
-    color: #fff;
-    font-family: 'Odibee Sans', cursive;
-    margin-bottom: 0;
+  font-size: 54px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  font-family: "Odibee Sans", cursive;
+  margin-bottom: 0;
 }
 
 .carousel-wrapper {
-    height: 400px;
-    position: relative;
-    width: 800px;
-    display: block;
-    margin: 50px auto;
-    border: 2px solid black;
+  height: 400px;
+  position: relative;
+  width: 800px;
+  display: block;
+  margin: 50px auto;
+  border: 2px solid black;
 }
 
 .carousel-item {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 25px 50px;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* padding: 25px 50px; */
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
 
 .arrow {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 12px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 12px;
 }
 
 .arrow-prev {
-    left: 30px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) rotate(135deg);
-
+  left: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(135deg);
 }
 
 .arrow-next {
-    right: 30px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) rotate(-45deg);
+  right: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 [id^="item"] {
-    display: none;
+  display: none;
 }
 
 .item-1 {
-    z-index: 2;
-    opacity: 1;
-    background: url('../images/test-image1.jpg')
+  z-index: 2;
+  opacity: 1;
+  background: url("../images/test-image1.jpg");
 }
 
 .item-2 {
-    background: url('../images/test-image2.jpg');
-    background-size: cover;
+  background: url("../images/test-image2.jpg");
+  background-size: cover;
 }
 
 .item-3 {
-    background: url('../images/test-image3.jpg');
-    background-size: cover;
+  background: url("../images/test-image3.jpg");
+  background-size: cover;
 }
 
 .item-4 {
-    background: url('../images/test-image3.jpg');
-    background-size: cover;
+  background: url("../images/test-image3.jpg");
+  background-size: cover;
 }
 
 .item-5 {
-    background: url('../images/test-image3.jpg');
-    background-size: cover;
+  background: url("../images/test-image3.jpg");
+  background-size: cover;
 }
 
-*:target~.item-1 {
-    opacity: 0;
+*:target ~ .item-1 {
+  opacity: 0;
 }
 
-#item-1:target~.item-1 {
-    opacity: 1;
-
+#item-1:target ~ .item-1 {
+  opacity: 1;
 }
 
-#item-2:target~.item-2,
-#item-3:target~.item-3 {
-    z-index: 3;
-    opacity: 1;
+#item-2:target ~ .item-2,
+#item-3:target ~ .item-3 {
+  z-index: 3;
+  opacity: 1;
 }
