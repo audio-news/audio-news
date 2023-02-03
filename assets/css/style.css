@@ -21,8 +21,27 @@ body {
 }
 */
 
-
 /* Class selectors */
+.sideBar {
+    width: 100%;
+    min-height: 100%;
+    max-width: 250px;
+    background-color: aliceblue;
+    box-shadow: 0 0 5px black;
+    position: absolute;
+    left: 0px;
+    text-align: center;
+    z-index: 1;
+    right: 50px;
+}
+
+.sideList .newsTags{
+    list-style-type: none;
+    padding: 1em;
+    margin: 0;
+    flex: 1;
+}
+
 .newscards {
     background-color: aliceblue;
 }
@@ -108,6 +127,16 @@ h4 {
 }
 
 .item-3 {
+    background: url('../images/test-image3.jpg');
+    background-size: cover;
+}
+
+.item-4 {
+    background: url('../images/test-image3.jpg');
+    background-size: cover;
+}
+
+.item-5 {
     background: url('../images/test-image3.jpg');
     background-size: cover;
 }

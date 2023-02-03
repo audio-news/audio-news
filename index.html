@@ -18,12 +18,24 @@
     <nav class="topnav">
         <h1>Audio News</h1>
         <p style="text-align: center; font-size: 30px; "> PAGE UNDER HEAVY DEVELOPMENT !!!</p>
-        <a class="active" href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <input id="value-search" type="text" placeholder=" Find articles. . .">
-        <button class="search-button"> Search </button>
     </nav>
+
+    <div class="sideBar">
+        <div class="searchBox">
+            <input type="text" placeholder=" Find articles. . .">
+            <button class="search-button"> Search </button>
+        </div>
+            <ol class="newsTags">
+                <li class="tag1">Tag 1</li>
+                <li class="tag2">Tag 2</li>
+                <li class="tag3">Tag 3</li>
+            </ol>
+            <ol class="sideList">
+                <li class="active" href="#home">Home</li>
+                <li href="#about">About</li>
+                <li href="#contact">Contact</li>
+            </ol>
+    </div>
 
     <main>
         <h4> This is a test</h4>
@@ -31,6 +43,8 @@
             <span id="item-1"></span>
             <span id="item-2"></span>
             <span id="item-3"></span>
+            <span id="item-4"></span>
+            <span id="item-5"></span>
             <div class="carousel-item item-1">
 
                 <a href="#item-3" class="arrow-prev arrow"></a>
@@ -46,14 +60,25 @@
                 <a href="#item-2" class="arrow-prev arrow"></a>
                 <a href="#item-1" class="arrow-next arrow"></a>
             </div>
+
+            <div class="carousel-item item-4">
+                <a href="#item-2" class="arrow-prev arrow"></a>
+                <a href="#item-1" class="arrow-next arrow"></a>
+            </div>
+
+            <div class="carousel-item item-5">
+                <a href="#item-2" class="arrow-prev arrow"></a>
+                <a href="#item-1" class="arrow-next arrow"></a>
+            </div>
         </div>
 
-        <section class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-            <article id="article1" class="rounded overflow-hidden shadow-lg newscards">
-                <img class="w-full" src="assets/images/test-image1.jpg" alt="testimage">
+        <section class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"> <!--Uses Tailwind-->
+            <article id="article1" class="rounded overflow-hidden shadow-lg newscards"> <!--Uses Tailwind-->
+                <!--Uses Tailwind-->
+                <img class="w-full"  src="assets/images/test-image1.jpg" alt="testimage">
                 <div class="px-6 py-4">
                     <h2 class="font-bold text-xl mb-2">Article 1</h2>
-                    <p class="text-gray-700 text-base article-desc1">
+                    <p class="text-gray-700 text-base article-desc1"> 
                         orem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                         numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium.
@@ -62,7 +87,7 @@
                 </div>
             </article>
 
-            <article id="article2" class="rounded overflow-hidden shadow-lg newscards">
+            <article id="article2" class="rounded overflow-hidden shadow-lg newscards"> <!--Uses Tailwind-->
                 <img class="w-full" src="assets/images/test-image2.jpg" alt="testimage">
                 <div class="px-6 py-4 article1">
                     <h2 class="font-bold text-xl mb-2">Article 2</h2>
