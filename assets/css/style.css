@@ -78,12 +78,12 @@ h4 {
 }
 
 .carousel-wrapper {
-  height: 400px;
+  height: 500px;
   position: relative;
   width: 800px;
   display: block;
   margin: 50px auto;
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
 }
 
 .carousel-item {
@@ -92,7 +92,6 @@ h4 {
   bottom: 0;
   left: 0;
   right: 0;
-  /* padding: 25px 25px; */
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
@@ -125,7 +124,7 @@ h4 {
 .item-1 {
   z-index: 2;
   opacity: 1;
-  /* background: url("../images/test-image1.jpg"); */
+  background: url("../images/test-image1.jpg");
 }
 
 .item-2 {

@@ -24,91 +24,85 @@
       </p>
     </header>
 
-    <!-- Styled sidebar as menu -->
-    <aside class="menu sideBar">
-      <!-- Search Box-->
-      <div class="menu-list searchBox">
-        <p class="menu-label">Find your news</p>
-        <input class="input" type="text" placeholder="Find articles. . ." />
-        <button class="button search-button is-link">Search</button>
-      </div>
-      <!-- Suggested Searches -->
-      <ol class="menu-list">
-        <li>
-          <p class="menu-label">Suggested Searches</p>
-          <ul>
-            <li><a>Breaking News</a></li>
-            <li><a>Sports</a></li>
-            <li><a>Finance</a></li>
-          </ul>
-        </li>
-        <!-- Related Links -->
-        <li><a class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ol>
-    </aside>
-
     <main>
-      <!-- Changed carousel items to cards -->
-      <h4>This is a test</h4>
-      <div class="carousel-wrapper card">
-        <span id="item-1"></span>
-        <span id="item-2"></span>
-        <span id="item-3"></span>
-        <span id="item-4"></span>
-        <span id="item-5"></span>
-
-        <div class="carousel-item item-1 card">
-          <!-- Article Title -->
-          <div class="card-header-title is-centered has-background-white">
-            Example Title
+      <!-- Section containing sidebar and carousel -->
+      <section class="section columns">
+        <!-- Styled sidebar as menu -->
+        <aside class="menu column is-3">
+          <!-- Search Box-->
+          <div class="menu-list searchBox">
+            <p class="menu-label">Find your news</p>
+            <input class="input" type="text" placeholder="Find articles. . ." />
+            <button class="button search-button is-link">Search</button>
           </div>
-          <!-- <div class="card-image">
-            <figure class="image">
-              <img
-                src="../assets/images/test-image1.jpg"
-                alt="Placeholder image"
-              />
-            </figure>
-          </div> -->
-          <!-- possible to replace these with bulma icon elements for better visibility -->
-          <a href="#item-3" class="arrow-prev arrow"></a>
-          <a href="#item-2" class="arrow-next arrow"></a>
-        </div>
+          <!-- Suggested Searches -->
+          <ol class="menu-list">
+            <li>
+              <p class="menu-label">Suggested Searches</p>
+              <ul>
+                <li><a>Breaking News</a></li>
+                <li><a>Sports</a></li>
+                <li><a>Finance</a></li>
+              </ul>
+            </li>
+            <!-- Related Links -->
+            <li><a class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </aside>
 
-        <div class="carousel-item item-2 card">
-          <div class="card-header-title is-centered has-background-white">
-            Example Title
+        <!-- Used column to position carousel -->
+        <div class="carousel-wrapper card column is-7 is-offset-1">
+          <span id="item-1"></span>
+          <span id="item-2"></span>
+          <span id="item-3"></span>
+          <span id="item-4"></span>
+          <span id="item-5"></span>
+          <!-- Changed carousel items to cards -->
+          <div class="carousel-item item-1 card">
+            <!-- Article Title -->
+            <div class="card-header-title is-centered has-background-white">
+              Example Title
+            </div>
+            <!-- Look into replacing these with buttons for visibility -->
+            <a href="#item-3" class="arrow-prev arrow"></a>
+            <a href="#item-2" class="arrow-next arrow"></a>
           </div>
-          <a href="#item-1" class="arrow-prev arrow"></a>
-          <a href="#item-3" class="arrow-next arrow"></a>
-        </div>
 
-        <div class="carousel-item item-3 card">
-          <div class="card-header-title is-centered has-background-white">
-            Example Title
+          <div class="carousel-item item-2 card">
+            <div class="card-header-title is-centered has-background-white">
+              Example Title
+            </div>
+            <a href="#item-1" class="arrow-prev arrow"></a>
+            <a href="#item-3" class="arrow-next arrow"></a>
           </div>
-          <a href="#item-2" class="arrow-prev arrow"></a>
-          <a href="#item-1" class="arrow-next arrow"></a>
-        </div>
 
-        <div class="carousel-item item-4 card">
-          <div class="card-header-title is-centered has-background-white">
-            Example Title
+          <div class="carousel-item item-3 card">
+            <div class="card-header-title is-centered has-background-white">
+              Example Title
+            </div>
+            <a href="#item-2" class="arrow-prev arrow"></a>
+            <a href="#item-1" class="arrow-next arrow"></a>
           </div>
-          <a href="#item-2" class="arrow-prev arrow"></a>
-          <a href="#item-1" class="arrow-next arrow"></a>
-        </div>
 
-        <div class="carousel-item item-5 card">
-          <div class="card-header-title is-centered has-background-white">
-            Example Title
+          <div class="carousel-item item-4 card">
+            <div class="card-header-title is-centered has-background-white">
+              Example Title
+            </div>
+            <a href="#item-2" class="arrow-prev arrow"></a>
+            <a href="#item-1" class="arrow-next arrow"></a>
           </div>
-          <a href="#item-2" class="arrow-prev arrow"></a>
-          <a href="#item-1" class="arrow-next arrow"></a>
+
+          <div class="carousel-item item-5 card">
+            <div class="card-header-title is-centered has-background-white">
+              Example Title
+            </div>
+            <a href="#item-2" class="arrow-prev arrow"></a>
+            <a href="#item-1" class="arrow-next arrow"></a>
+          </div>
         </div>
-      </div>
+      </section>
 
       <section
         class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"
