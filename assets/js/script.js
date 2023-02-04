@@ -66,6 +66,9 @@ function getNewsArticles(data) {
 
 var selectedArticle = $(".carousel-item");
 selectedArticle.on("click", function (event) {
+  if ($(event.target).is("a")) {
+    return;
+  }
   //Gets the footer element of the article that is selected
   var selectedArticleDesc = $(event.currentTarget).children("footer.card-footer");
   //Displays the article desc
