@@ -1,6 +1,4 @@
-//TODO: Add query selector for form in HTML DOM. This is so we can add an event listener for when the form is submitted
 var userTopicForm = $(".searchBox");
-//TODO: Add query selector for text input in form. This is so we can extract the text inputted by the user
 var userTopicSelect = $("#user-input");
 
 /* Checks to see if user placed an entry when submitting the form. If an entry was 
@@ -39,31 +37,43 @@ function getNewsData(topic) {
     });
 }
 
-/* Extracts the desired data (article titles, description, and image) */
+/* Extracts the desired data (article titles, description, and image) and placed it into the DOM*/
 function getNewsArticles(data) {
-    console.log(data);
-    var articles = data.articles;
-    for (var i = 0; i < articles.length; i++) {
-      //TODO: Add query selectors to place article data into the DOM to be displayed on the screen
-      var articleTitle = articles[i]["title"];
-      var articleDesc = articles[i]["description"];
-      var articleImgUrl = articles[i]["image"];
+  console.log(data);
+  var articles = data.articles;
 
-      var carouselCard = $(`.item-${i + 1}`);
-      carouselCard.css("background-image", `url("${articleImgUrl}")`);
-    }
+  var carouselCardTitle = $(".card-header-title");
+  for (var i = 0; i < articles.length; i++) {
+    var articleTitle = articles[i]["title"];
+    var articleDesc = articles[i]["description"];
+    var articleImgUrl = articles[i]["image"];
+
+    //Changes the background image of the carousel item to the article image
+    var carouselCard = $(`.carousel-item.item-${i + 1}`);
+    carouselCard.css("background-image", `url("${articleImgUrl}")`);
+
+    //Changes the text of the carousel card title to the article title
+    $(carouselCardTitle[i]).text(articleTitle);
+
+    //Places a footer to the carousel card containing the article desc. This section is initially set to display none
+    //in the css and will be displayed only when the user clicks on a specific article
+    var carouselCardDesc = `<footer class="card-footer has-text-centered has-background-white">
+      <p class="card-footer-item">${articleDesc}</p>
+      </footer>`;
+    carouselCard.append(carouselCardDesc);
+  }
 }
 
-//TODO: Add query selector to get parent element where the articles are going to be added in. This is because we 
-//will use event delegation since the articles will only be added when the user submits the form
-var main = $();
-//TODO: Add class element of the article that is going to be clicked on
-main.on("click", "", function (event) {
-//Gets the body elements of the article that is selected
-    var selectedArticle = $(event.currentTarget).children();
-//Gets the description text of the selected article
-    var selectedDescText = selectedArticle.children().text();
-    fetchTTS(selectedDescText);
+var selectedArticle = $(".carousel-item");
+selectedArticle.on("click", function (event) {
+  //Gets the footer element of the article that is selected
+  var selectedArticleDesc = $(event.currentTarget).children("footer.card-footer");
+  //Displays the article desc
+  selectedArticleDesc.css("display", "flex");
+  selectedArticleDesc.css("justify-content", "flex-end");
+  //Gets the description text of the selected article
+  var selectedDescText = selectedArticleDesc.children("p.card-footer-item").text();
+  fetchTTS(selectedDescText);
 });
 
 /* Fetches VoiceRSS Text-to-Speech API with the selected article's description text as a query parameter.

@@ -87,6 +87,12 @@ h4 {
   transition: all 0.5s ease-in-out;
 }
 
+.card-footer{
+    display: none;
+    position: absolute;
+    bottom: 0;
+}
+
 .arrow {
   border: solid black;
   border-width: 0 3px 3px 0;
@@ -116,6 +122,7 @@ h4 {
   z-index: 2;
   opacity: 1;
   background: url("../images/test-image1.jpg");
+  background-size: cover;
 }
 
 .item-2 {
