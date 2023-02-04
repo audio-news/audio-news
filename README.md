@@ -22,7 +22,7 @@ to be read out or you can click the side arrows to change to a different article
 - CSS
 - GNews
 - Voice RSS
-- Jquiry
+- JQuery
 
 ## Contributors
 
@@ -31,6 +31,9 @@ Jacob MacDonald
 Abed Ahmed
 Gabriel Tuason
 Zoheir Bakarally
+
+## Deployed URL
+
 
 ## License
 
