@@ -8,7 +8,9 @@ function userFormSubmit(event) {
 
   const topic = userTopicSelect.val();
   if (topic) {
-    getNewsData(topic);
+    const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
+    const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
+    getNewsData(newsurl);
     userTopicSelect.val("");
   } else {
     alert("Please enter a topic");
@@ -18,11 +20,8 @@ function userFormSubmit(event) {
 /* Fetches the article data using the gnews API. Checks to see if the fetch promise is returned.
 If not it catches the error. Once the fetch promise is retrieved, check the status code of the returned data.
 If the status is ok, calls getNewsArticles function to extract desired data*/
-function getNewsData(topic) {
-  const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
-  const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
-
-  fetch(newsurl)
+function getNewsData(apiUrl) {
+  fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
@@ -108,6 +107,15 @@ function fetchTTS(text) {
     }
 }
 
+var menuLink = $(".menu-link")
+menuLink.on("click", function (event) {
+    const menuTopic = $(event.target).text().toLowerCase();
+    console.log($(event.target));
+    console.log(menuTopic);
+    const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
+    const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
+    getNewsData(topicUrl);
+});
 
 /* Runs the userFormSubmit function when the form on the screen is submitted */
 userTopicForm.submit(userFormSubmit);
