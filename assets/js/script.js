@@ -78,17 +78,33 @@ selectedArticle.on("click", function (event) {
   fetchTTS(selectedDescText);
 });
 
+var audio = null;
 /* Fetches VoiceRSS Text-to-Speech API with the selected article's description text as a query parameter.
 The function generates an audio format in the browser window which plays a voice reading the selected article's description*/
 function fetchTTS(text) {
-  const API_KEY = "e5bd0e9876784ba4b37cb873babe6e39";
-  const voice = "en-gb";
-  const format = "MP3";
-  const speed = 0;
-  const requestUrl = `http://api.voicerss.org/?key=${API_KEY}&src=${text}&hl=${voice}&c=${format}&f=44khz_16bit_stereo&r=${speed}`;
+    const API_KEY = "e5bd0e9876784ba4b37cb873babe6e39";
+    const language = "en-us";
+    const voice = "Mike";
+    const codec = "MP3";
+    const format = "alaw_22khz_mono";
+    const speed = 0;
+    const requestUrl = `http://api.voicerss.org/?key=${API_KEY}&src=${text}&hl=${language}&v=${voice}&c=${codec}&f=${format}&r=${speed}`;
 
-  const audio = new Audio(requestUrl);
-  audio.play();
+    //Checks if there's a current existing audio so audio's don't overlap
+    if (audio === null) {
+        audio = new Audio(requestUrl);
+        audio.play();
+    } else {
+        //If the audio is currently playing, then pause it and set audio to null (so the next time the user clicks the element, it will restart the audio)
+        if (!audio.paused) {
+            audio.pause();
+            audio = null;
+        }
+        //If the audio finished and the user clicks the element again, it replays the audio
+        else if (audio.ended) {
+            audio.play();
+        }
+    }
 }
 
 var menuLink = $(".menu-link")
