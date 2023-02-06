@@ -109,12 +109,55 @@ function fetchTTS(text) {
 
 var menuLink = $(".menu-link")
 menuLink.on("click", function (event) {
-    const menuTopic = $(event.target).text().toLowerCase();
-    console.log($(event.target));
-    console.log(menuTopic);
-    const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
-    const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
-    getNewsData(topicUrl);
+  const menuTopic = $(event.target).text().toLowerCase();
+  const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
+  const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
+  getNewsData(topicUrl);
+});
+
+/* Displays trending articles below the carousel in the webpage. Since these trends are also available in the 
+suggested searches menu, this function displays articles that won't be displayed in the carousel. The function
+makes an api call to return the top 7 articles for a trend (first 5 will appear in carousel and remaining 2 will be
+displayed below the carousel)*/
+function displayTrends(trend) {
+  const trendTopic = trend.attr("id");
+  const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
+  const trendUrl = `https://gnews.io/api/v4/top-headlines?topic=${trendTopic}&token=${apikey}&lang=en&country=us&max=7`;
+
+  fetch(trendUrl)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          var articles = data.articles;
+          var trendCards = trend.children();
+
+          for (var i = 0; i < trendCards.length; i++) {
+            var trendTitle = articles[i + 5]["title"];
+            var trendDesc = articles[i + 5]["description"];
+            var trendImgUrl = articles[i + 5]["image"];
+
+            $(trendCards[i]).find(".card-image").find("img").attr("src", trendImgUrl);
+            $(trendCards[i]).find(".card-content").find(".title").text(trendTitle);
+            $(trendCards[i]).find(".card-content").find(".content").text(trendDesc);
+          }
+        });
+      } else {
+        alert("Error: " + response.statusText);
+      }
+    })
+    .catch(function (error) {
+      alert("Error:", error);
+    });
+}
+
+$(document).ready(function () {
+  var trendBreaking = $("#breaking-news");
+  var trendWorld = $("#world");
+  var trendEntertainment = $("#entertainment");
+
+  displayTrends(trendBreaking);
+  displayTrends(trendWorld);
+  displayTrends(trendEntertainment);
 });
 
 /* Runs the userFormSubmit function when the form on the screen is submitted */
