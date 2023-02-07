@@ -8,7 +8,7 @@ function userFormSubmit(event) {
 
   const topic = userTopicSelect.val();
   if (topic) {
-    const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
+    const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
     const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
     getNewsData(newsurl);
     userTopicSelect.val("");
@@ -46,6 +46,7 @@ function getNewsArticles(data) {
     var articleTitle = articles[i]["title"];
     var articleDesc = articles[i]["description"];
     var articleImgUrl = articles[i]["image"];
+    var articleUrl = articles[i]["url"];
 
     //Changes the background image of the carousel item to the article image
     var carouselCard = $(`.carousel-item.item-${i + 1}`);
@@ -58,6 +59,7 @@ function getNewsArticles(data) {
     //in the css and will be displayed only when the user clicks on a specific article
     var carouselCardDesc = `<footer class="card-footer has-text-centered has-background-white">
       <p class="card-footer-item">${articleDesc}</p>
+      <p><a href="${articleUrl}" target="_blank"><button class="button read-more" type="button"> Read More </button></a></p>
       </footer>`;
     carouselCard.append(carouselCardDesc);
   }
@@ -65,7 +67,8 @@ function getNewsArticles(data) {
 
 var selectedArticle = $(".carousel-item");
 selectedArticle.on("click", function (event) {
-  if ($(event.target).is("a")) {
+  console.log($(event.target));
+  if ($(event.target).is("a") || $(event.target).is("button.button.read-more")) {
     if (audio) {
       audio.pause();
     }
@@ -118,7 +121,7 @@ function fetchTTS(text) {
 var menuLink = $(".menu-link");
 menuLink.on("click", function (event) {
   const menuTopic = $(event.target).text().toLowerCase();
-  const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
+  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
   const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicUrl);
 });
@@ -143,6 +146,7 @@ function displayTrends(trend) {
             var trendTitle = articles[i + 5]["title"];
             var trendDesc = articles[i + 5]["description"];
             var trendImgUrl = articles[i + 5]["image"];
+            var trendUrl = articles[i + 5]["url"];
 
             $(trendCards[i])
               .find(".card-image")
@@ -156,6 +160,11 @@ function displayTrends(trend) {
               .find(".card-content")
               .find(".content")
               .text(trendDesc);
+            $(trendCards[i])
+              .find(".card-content")
+              .find(".buttons")
+              .find("a")
+              .attr("href", trendUrl);
           }
         });
       } else {
@@ -168,6 +177,11 @@ function displayTrends(trend) {
 }
 
 $(document).ready(function () {
+  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+  const randTopic = "lifestyle";
+  const topicsUrl = `https://gnews.io/api/v4/top-headlines?q=${randTopic}&token=${apikey}&lang=en&country=us&max=5`;
+  getNewsData(topicsUrl);
+
   const trendBreaking = $("#breaking-news");
   const trendWorld = $("#world");
   const trendEntertainment = $("#entertainment");
