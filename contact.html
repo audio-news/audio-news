@@ -25,13 +25,80 @@
     </header>
 
     <main>
-      <div class="hero is-link">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">Don't</h1>
+      <!-- Section containing sidebar and contact cards -->
+      <section class="section columns">
+        <!-- Styled sidebar as menu -->
+        <aside class="sideBar menu column is-3">
+          <!-- Suggested Searches -->
+          <ol class="menu-list" style="list-style: none">
+            <li>
+              <p class="menu-label">Navigation</p>
+              <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./favourites.html">Favourites</a></li>
+              </ul>
+            </li>
+
+            <!-- Contact -->
+            <li><a class="is-active">Contact</a></li>
+          </ol>
+        </aside>
+
+        <!--Our Contact Info-->
+        <div class="column">
+          <div class="hero is-success">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">The Audio News Team</h1>
+              </div>
+            </div>
+          </div>
+          <div
+            id="contacts"
+            class="columns is-multiline is-half-mobile is-half-tablet is-half-desktop is-half-widescreen is-half-fullhd"
+          >
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img
+                      src="https://bulma.io/images/placeholders/1280x960.png"
+                      alt="A photo of Julia"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media-content">
+                    <p class="title is-4">Julia Bernst</p>
+                    <p class="content is-6">
+                      Julia is a part of the Audio News Team.
+                    </p>
+                    <a href="#">GitHub</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img
+                      src="https://bulma.io/images/placeholders/1280x960.png"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media-content">
+                    <p class="title is-4"></p>
+                    <p class="content is-6"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
     <!-- JQUERY-->
     <script
