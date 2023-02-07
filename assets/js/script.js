@@ -168,9 +168,9 @@ $(document).ready(function () {
   var trendWorld = $("#world");
   var trendEntertainment = $("#entertainment");
 
-  // displayTrends(trendBreaking);
-  // displayTrends(trendWorld);
-  // displayTrends(trendEntertainment);
+  displayTrends(trendBreaking);
+  displayTrends(trendWorld);
+  displayTrends(trendEntertainment);
 });
 
 /* Runs the userFormSubmit function when the form on the screen is submitted */
