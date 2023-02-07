@@ -1,16 +1,40 @@
-### Hi there 👋
+# Audio News
 
-<!--
-**audio-news/audio-news** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Audio News is a website that allows you to search news articles and then have them read out to you using text to speach.
 
-Here are some ideas to get you started:
+## Installation
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Download the github repository and launch the website by opening the Index.HTML in your prefered browser.
+
+## Instructions
+
+Once you launch the website you can either type in a custom search or click on the popular searches in the side bar. 
+When the carosael is populated with your articles you can either  click on the image for the article description 
+to be read out or you can click the side arrows to change to a different article.
+
+## Screenshot
+
+
+## Built With
+
+- JavaScript
+- HTML
+- CSS
+- GNews
+- Voice RSS
+- JQuery
+
+## Contributors
+
+Julia Bernst
+Jacob MacDonald
+Abed Ahmed
+Gabriel Tuason
+Zoheir Bakarally
+
+## Deployed URL
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
