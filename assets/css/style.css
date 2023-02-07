@@ -1,8 +1,14 @@
 /* Universal Selectors */
 h1 {
   text-align: center;
-  font-size: 80px;
   font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+h1 span {
+  padding: 10px 70px 10px 6px;
+  background-color: rgb(19, 19, 75);
 }
 
 hero {
@@ -22,6 +28,19 @@ body {
 */
 
 /* Class selectors */
+.logo {
+  margin: 3% 0px 0px 3%;
+  border: rgb(19, 19, 75);
+  border-width: 1em;
+}
+
+.instructions {
+  text-align: center;
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Signika Negative', sans-serif;
+}
+
 .sideBar {
   background-color: aliceblue;
   box-shadow: 0 0 5px black;
@@ -55,6 +74,10 @@ body {
 /* Made menu labels larger */
 .menu-label {
   font-size: 1rem;
+}
+
+.footer {
+  margin-top: 8%;
 }
 
 /*Carousel*/
@@ -95,7 +118,7 @@ h4 {
 
 .arrow {
   border: solid black;
-  border-width: 0 3px 3px 0;
+  border-width: 0 7px 7px 0;
   display: inline-block;
   padding: 12px;
 }
