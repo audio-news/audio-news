@@ -66,6 +66,10 @@ function getNewsArticles(data) {
 var selectedArticle = $(".carousel-item");
 selectedArticle.on("click", function (event) {
   if ($(event.target).is("a")) {
+    if (audio) {
+      audio.pause();
+    }
+    audio = null;
     return;
   }
   //Gets the footer element of the article that is selected
@@ -125,7 +129,7 @@ makes an api call to return the top 7 articles for a trend (first 5 will appear 
 displayed below the carousel)*/
 function displayTrends(trend) {
   const trendTopic = trend.attr("id");
-  const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
+  const apikey = "6c567cc9914a3b820af13132977057d8";
   const trendUrl = `https://gnews.io/api/v4/top-headlines?topic=${trendTopic}&token=${apikey}&lang=en&country=us&max=7`;
 
   fetch(trendUrl)
@@ -164,9 +168,9 @@ function displayTrends(trend) {
 }
 
 $(document).ready(function () {
-  var trendBreaking = $("#breaking-news");
-  var trendWorld = $("#world");
-  var trendEntertainment = $("#entertainment");
+  const trendBreaking = $("#breaking-news");
+  const trendWorld = $("#world");
+  const trendEntertainment = $("#entertainment");
 
   displayTrends(trendBreaking);
   displayTrends(trendWorld);
