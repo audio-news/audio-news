@@ -69,12 +69,16 @@ selectedArticle.on("click", function (event) {
     return;
   }
   //Gets the footer element of the article that is selected
-  var selectedArticleDesc = $(event.currentTarget).children("footer.card-footer");
+  var selectedArticleDesc = $(event.currentTarget).children(
+    "footer.card-footer"
+  );
   //Displays the article desc
   selectedArticleDesc.css("display", "flex");
   selectedArticleDesc.css("justify-content", "flex-end");
   //Gets the description text of the selected article
-  var selectedDescText = selectedArticleDesc.children("p.card-footer-item").text();
+  var selectedDescText = selectedArticleDesc
+    .children("p.card-footer-item")
+    .text();
   fetchTTS(selectedDescText);
 });
 
@@ -82,32 +86,32 @@ var audio = null;
 /* Fetches VoiceRSS Text-to-Speech API with the selected article's description text as a query parameter.
 The function generates an audio format in the browser window which plays a voice reading the selected article's description*/
 function fetchTTS(text) {
-    const API_KEY = "e5bd0e9876784ba4b37cb873babe6e39";
-    const language = "en-us";
-    const voice = "Mike";
-    const codec = "MP3";
-    const format = "alaw_22khz_mono";
-    const speed = 0;
-    const requestUrl = `http://api.voicerss.org/?key=${API_KEY}&src=${text}&hl=${language}&v=${voice}&c=${codec}&f=${format}&r=${speed}`;
+  const API_KEY = "e5bd0e9876784ba4b37cb873babe6e39";
+  const language = "en-us";
+  const voice = "Mike";
+  const codec = "MP3";
+  const format = "alaw_22khz_mono";
+  const speed = 0;
+  const requestUrl = `http://api.voicerss.org/?key=${API_KEY}&src=${text}&hl=${language}&v=${voice}&c=${codec}&f=${format}&r=${speed}`;
 
-    //Checks if there's a current existing audio so audio's don't overlap
-    if (audio === null) {
-        audio = new Audio(requestUrl);
-        audio.play();
-    } else {
-        //If the audio is currently playing, then pause it and set audio to null (so the next time the user clicks the element, it will restart the audio)
-        if (!audio.paused) {
-            audio.pause();
-            audio = null;
-        }
-        //If the audio finished and the user clicks the element again, it replays the audio
-        else if (audio.ended) {
-            audio.play();
-        }
+  //Checks if there's a current existing audio so audio's don't overlap
+  if (audio === null) {
+    audio = new Audio(requestUrl);
+    audio.play();
+  } else {
+    //If the audio is currently playing, then pause it and set audio to null (so the next time the user clicks the element, it will restart the audio)
+    if (!audio.paused) {
+      audio.pause();
+      audio = null;
     }
+    //If the audio finished and the user clicks the element again, it replays the audio
+    else if (audio.ended) {
+      audio.play();
+    }
+  }
 }
 
-var menuLink = $(".menu-link")
+var menuLink = $(".menu-link");
 menuLink.on("click", function (event) {
   const menuTopic = $(event.target).text().toLowerCase();
   const apikey = "0a81fd50979ee58ec90f9d378ec0e3ef";
@@ -136,9 +140,18 @@ function displayTrends(trend) {
             var trendDesc = articles[i + 5]["description"];
             var trendImgUrl = articles[i + 5]["image"];
 
-            $(trendCards[i]).find(".card-image").find("img").attr("src", trendImgUrl);
-            $(trendCards[i]).find(".card-content").find(".title").text(trendTitle);
-            $(trendCards[i]).find(".card-content").find(".content").text(trendDesc);
+            $(trendCards[i])
+              .find(".card-image")
+              .find("img")
+              .attr("src", trendImgUrl);
+            $(trendCards[i])
+              .find(".card-content")
+              .find(".title")
+              .text(trendTitle);
+            $(trendCards[i])
+              .find(".card-content")
+              .find(".content")
+              .text(trendDesc);
           }
         });
       } else {
