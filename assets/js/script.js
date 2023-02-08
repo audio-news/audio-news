@@ -1,5 +1,7 @@
 var userTopicForm = $(".searchBox");
 var userTopicSelect = $("#user-input");
+/* Runs the userFormSubmit function when the form on the screen is submitted */
+userTopicForm.on("submit", userFormSubmit);
 
 /* Checks to see if user placed an entry when submitting the form. If an entry was 
 placed, then call the getNewsData function to fetch the data with gnews API */
@@ -69,7 +71,8 @@ function getNewsArticles(data) {
 /* When the carousel article is clicked on, it reveals the footer of the carousel item that contains the article's 
 description and plays the audio of the description */
 var selectedArticle = $(".carousel-item");
-selectedArticle.on("click", function (event) {
+selectedArticle.on("click", playCarouselAudio);
+function playCarouselAudio(event) {
   if ($(event.target).is("a") || $(event.target).is("button.button.read-more")) {
     if (audio) {
       audio.pause();
@@ -89,7 +92,7 @@ selectedArticle.on("click", function (event) {
     .children("p.card-footer-item")
     .text();
   fetchTTS(selectedDescText);
-});
+};
 
 var audio = null;
 /* Fetches VoiceRSS Text-to-Speech API with the selected article's description text as a query parameter.
@@ -120,18 +123,20 @@ function fetchTTS(text) {
   }
 }
 
+/* Displays articles in the carousel when the user clicks on an option from the suggested searches in the sidebar */
 var menuLink = $(".menu-link");
-menuLink.on("click", function (event) {
+menuLink.on("click", getSuggestedArticle);
+function getSuggestedArticle(event) {
   const menuTopic = $(event.target).text().toLowerCase();
   const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
   const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicUrl);
-});
+};
 
-/* Displays trending articles below the carousel in the webpage. Since these trends are also available in the 
-suggested searches menu, this function displays articles that won't be displayed in the carousel. The function
-makes an api call to return the top 7 articles for a trend (first 5 will appear in carousel and remaining 2 will be
-displayed below the carousel)*/
+/* Displays trending articles in the headline section below the carousel in the webpage. Since these trends are 
+also available in the suggested searches menu, this function displays articles that won't be displayed in the 
+carousel. The function makes an api call to return the top 7 articles for a trend (first 5 will appear in carousel 
+and remaining 2 will be displayed below the carousel)*/
 function displayHeadlines(trend) {
   const trendTopic = trend.attr("id");
   const apikey = "3b64668f943a2a88bd9cf8517c24086f";
@@ -181,12 +186,14 @@ function displayHeadlines(trend) {
 /* Checks the headline article that was clicked by the user. When the user clicks on the article, the audio of its 
 description is played. If the user clicks on the article again it pauses the audio. If the user clicks on a different
 article, it pauses the audio and plays the audio of the new article */
-var checkHeadlineAudio = null;
+var prevHeadline = null;
 var headlineArticle = $(".headline-card");
-headlineArticle.on("click", function (event) {
+headlineArticle.on("click", playHeadlineAudio);
+function playHeadlineAudio(event) {
   const headlineDesc = $(event.currentTarget).find(".media-content").find(".content").text();
   var currentHeadline = $(this);
   var checkUserRead = false;
+  //Keeps audio playing if user clicks on the saveBtn while listening to the audio
   if ($(event.target).is("button.saveBtn") ||$(event.target).is("button.saveBtn img")) {
     return;
   }
@@ -194,12 +201,15 @@ headlineArticle.on("click", function (event) {
   if ($(event.target).is("button.button.read-more")) {
     if (audio) {
       audio.pause();
-      checkUserRead = true;
+      checkUserRead = true; //Checks if the user clicked the 'read more' button to view the full article
     }
     return;
   }
 
-  if (checkHeadlineAudio === $(currentHeadline)[0]) {
+  /*Checks if the user clicked the same headline article as the previous click. If its the same audio but the audio
+  was completed or the user clicked on the article link, then it replays the audio. Otherwise, it pauses the audio
+  when the user clicks the same headline article*/
+  if (prevHeadline === $(currentHeadline)[0]) {
     if (audio.ended || checkUserRead) {
       checkUserRead = false;
       audio = null;
@@ -208,17 +218,20 @@ headlineArticle.on("click", function (event) {
       audio.pause();
       audio = null;
     }
-    checkHeadlineAudio = null;
+    prevHeadline = null;
   } else {
-    if (checkHeadlineAudio) {
+    /* If the user clicked a different headline article, then it stops the audio of the last headline article and plays
+  the audio of the new article */
+    if (prevHeadline) {
       audio.pause();
       audio = null;
     }
     fetchTTS(headlineDesc);
-    checkHeadlineAudio = $(currentHeadline)[0];
+    prevHeadline = $(currentHeadline)[0];
   }
-});
+};
 
+/* Loads lifestyle articles in the carousel and headline articles below the carousel when the page loads */
 $(document).ready(function () {
   const apikey = "6c567cc9914a3b820af13132977057d8";
   const randTopic = "lifestyle";
@@ -256,13 +269,12 @@ $(document).ready(function () {
 
 var articleCards = $(".card");
 articleCards.on("click", ".buttons button.saveBtn", saveArticle);
-
 /* When the user clicks on the favourites button to save an article, it will change the button's style & attributes and
 add the article to localStorage. If the article was already saved, then it unsaves the article and removes the 
 button's style & attributes and removes the article from the localStorage  */
 function saveArticle(event) {
   event.stopImmediatePropagation();
-  //saves the html of the .card container element as a string
+  //saves the html of the .card container element that the user is trying to save as a string
   var favCard = $(event.target).closest(".card")[0].outerHTML;
   var storedCards = JSON.parse(localStorage.getItem("user_fav_articles"));
   if (storedCards == null) {
@@ -303,5 +315,3 @@ function saveArticle(event) {
     localStorage.setItem("user_fav_articles", JSON.stringify(storedCards));
   }
 }
-/* Runs the userFormSubmit function when the form on the screen is submitted */
-userTopicForm.on("submit", userFormSubmit);
