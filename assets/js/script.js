@@ -8,7 +8,7 @@ function userFormSubmit(event) {
 
   const topic = userTopicSelect.val();
   if (topic) {
-    const apikey = "1d43572a6aa2cb5240480cade17ec294";
+    const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
     const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
     getNewsData(newsurl);
     userTopicSelect.val("");
@@ -41,7 +41,7 @@ function getNewsArticles(data) {
   console.log(data);
   var articles = data.articles;
 
-  var carouselCardTitle = $(".card-header-title");
+  var carouselCardTitle = $(".card-header-title .title-text");
   for (var i = 0; i < articles.length; i++) {
     var articleTitle = articles[i]["title"];
     var articleDesc = articles[i]["description"];
@@ -57,6 +57,7 @@ function getNewsArticles(data) {
 
     //Places a footer to the carousel card containing the article desc. This section is initially set to display none
     //in the css and will be displayed only when the user clicks on a specific article
+    carouselCard.find("footer").remove();
     var carouselCardDesc = `<footer class="card-footer has-text-centered has-background-white">
       <p class="card-footer-item">${articleDesc}</p>
       <p><a href="${articleUrl}" target="_blank"><button class="button read-more" type="button"> Read More </button></a></p>
@@ -65,9 +66,10 @@ function getNewsArticles(data) {
   }
 }
 
+/* When the carousel article is clicked on, it reveals the footer of the carousel item that contains the article's 
+description and plays the audio of the description */
 var selectedArticle = $(".carousel-item");
 selectedArticle.on("click", function (event) {
-  console.log($(event.target));
   if ($(event.target).is("a") || $(event.target).is("button.button.read-more")) {
     if (audio) {
       audio.pause();
@@ -121,7 +123,7 @@ function fetchTTS(text) {
 var menuLink = $(".menu-link");
 menuLink.on("click", function (event) {
   const menuTopic = $(event.target).text().toLowerCase();
-  const apikey = "1d43572a6aa2cb5240480cade17ec294";
+  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
   const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicUrl);
 });
@@ -132,7 +134,7 @@ makes an api call to return the top 7 articles for a trend (first 5 will appear 
 displayed below the carousel)*/
 function displayHeadlines(trend) {
   const trendTopic = trend.attr("id");
-  const apikey = "1d43572a6aa2cb5240480cade17ec294";
+  const apikey = "6c567cc9914a3b820af13132977057d8";
   const trendUrl = `https://gnews.io/api/v4/top-headlines?topic=${trendTopic}&token=${apikey}&lang=en&country=us&max=7`;
 
   fetch(trendUrl)
@@ -180,44 +182,45 @@ function displayHeadlines(trend) {
 description is played. If the user clicks on the article again it pauses the audio. If the user clicks on a different
 article, it pauses the audio and plays the audio of the new article */
 var checkHeadlineAudio = null;
-var headlineArticle = $(".headline-article");
+var headlineArticle = $(".headline-card");
 headlineArticle.on("click", function (event) {
-    const headlineDesc = $(event.currentTarget).find(".media-content").find(".content").text();
-    var currentHeadline = $(this);
-    var checkUserRead = false;
-    //stops the audio if the user clicks on read more to go to a new tab and read the full article
-    if ($(event.target).is("button.button.read-more")) {
-        if (audio) {
-            audio.pause();
-            checkUserRead = true;
-        }
-        return;
+  const headlineDesc = $(event.currentTarget).find(".media-content").find(".content").text();
+  var currentHeadline = $(this);
+  var checkUserRead = false;
+  if ($(event.target).is("button.saveBtn") ||$(event.target).is("button.saveBtn img")) {
+    return;
+  }
+  //stops the audio if the user clicks on read more to go to a new tab and read the full article
+  if ($(event.target).is("button.button.read-more")) {
+    if (audio) {
+      audio.pause();
+      checkUserRead = true;
     }
+    return;
+  }
 
-    if (checkHeadlineAudio === $(currentHeadline)[0]) {
-        if (audio.ended || checkUserRead) {
-            checkUserRead = false;
-            audio = null;
-            fetchTTS(headlineDesc);
-        }
-        else {
-            audio.pause();
-            audio = null;
-        }
-        checkHeadlineAudio = null;
+  if (checkHeadlineAudio === $(currentHeadline)[0]) {
+    if (audio.ended || checkUserRead) {
+      checkUserRead = false;
+      audio = null;
+      fetchTTS(headlineDesc);
+    } else {
+      audio.pause();
+      audio = null;
     }
-    else {
-        if (checkHeadlineAudio) {
-            audio.pause();
-            audio = null;
-        }
-        fetchTTS(headlineDesc);
-        checkHeadlineAudio = $(currentHeadline)[0];
+    checkHeadlineAudio = null;
+  } else {
+    if (checkHeadlineAudio) {
+      audio.pause();
+      audio = null;
     }
+    fetchTTS(headlineDesc);
+    checkHeadlineAudio = $(currentHeadline)[0];
+  }
 });
 
 $(document).ready(function () {
-  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+  const apikey = "6c567cc9914a3b820af13132977057d8";
   const randTopic = "lifestyle";
   const topicsUrl = `https://gnews.io/api/v4/top-headlines?q=${randTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicsUrl);
@@ -239,12 +242,12 @@ $(document).ready(function () {
     var savedStatus = localStorage.getItem(buttonId); 
     if (savedStatus === "saved") {
       //Applies attributes & styles to that of a saved button
-      $(this).removeClass("is-outlined");
+      saveButton.removeClass("is-outlined");
       saveButton.attr("data-saved", "yes");
       saveButton.css("background-color", "red");
     } else {
       //Applies attributes & styles to that of an unsaved button
-      $(this).addClass("is-outlined");
+      saveButton.addClass("is-outlined");
       saveButton.attr("data-saved", "no");
       saveButton.css("background-color", "");
     }
@@ -258,8 +261,9 @@ articleCards.on("click", ".buttons button.saveBtn", saveArticle);
 add the article to localStorage. If the article was already saved, then it unsaves the article and removes the 
 button's style & attributes and removes the article from the localStorage  */
 function saveArticle(event) {
+  event.stopImmediatePropagation();
   //saves the html of the .card container element as a string
-  var favCard = $(event.delegateTarget)[0].outerHTML;
+  var favCard = $(event.target).closest(".card")[0].outerHTML;
   var storedCards = JSON.parse(localStorage.getItem("user_fav_articles"));
   if (storedCards == null) {
     storedCards = [];
@@ -294,7 +298,7 @@ function saveArticle(event) {
     localStorage.setItem(buttonId, "saved");
 
     //Gets the updated html with the changed button styles and attributes and add its to the array and localStorage
-    favCard = $(event.delegateTarget)[0].outerHTML;
+    favCard = $(event.target).closest(".card")[0].outerHTML;
     storedCards.unshift(favCard);
     localStorage.setItem("user_fav_articles", JSON.stringify(storedCards));
   }
