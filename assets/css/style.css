@@ -5,10 +5,6 @@ h1 {
   font-weight: bold;
 }
 
-hero {
-  background-color: rgb(169, 169, 224);
-}
-
 nav a {
   margin-left: 2%;
   font-size: 25px;
@@ -114,7 +110,11 @@ h4 {
   transform: translateY(-50%) rotate(-45deg);
 }
 
-.card {
+.card:hover{
+    cursor: pointer;
+}
+
+.headline-card {
   height: 100%;
 }
 
