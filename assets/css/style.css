@@ -3,6 +3,30 @@ h1 {
   text-align: center;
   font-size: 80px;
   font-weight: bold;
+  animation: ani 1s;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+/* h1 animation */
+@keyframes ani {
+  from {
+    letter-spacing: 35px;
+    filter: blur(5px);
+    opacity: 0;
+  }
+
+  to {
+    letter-spacing: 0;
+    filter: blur(0);
+    opacity: 1px;
+  }
+}
+
+h1 span {
+  padding: 3px 70px 10px 5px;
+  background-color: rgb(19, 19, 75);
 }
 
 nav a {
@@ -18,6 +42,17 @@ body {
 */
 
 /* Class selectors */
+.instructions {
+  text-align: center;
+
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+.footer {
+  margin-top: 8%;
+}
+
 .sideBar {
   background-color: aliceblue;
   box-shadow: 0 0 5px black;
@@ -91,7 +126,7 @@ h4 {
 
 .arrow {
   border: solid black;
-  border-width: 0 3px 3px 0;
+  border-width: 0 7px 7px 0;
   display: inline-block;
   padding: 12px;
 }
@@ -167,4 +202,45 @@ h4 {
 #item-5:target ~ .item-5 {
   z-index: 3;
   opacity: 1;
+}
+
+/* Instructions shadow animation */
+.instructions {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Signika Negative', sans-serif;
+  font-size: 24px;
+  height: 100px;
+  margin: auto;
+  display: block;
+
+  -webkit-animation: bounce 1.7s ease infinite alternate;
+
+  color: rgb(249, 249, 255);
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  text-shadow: 0 1px 0 #000000,
+    0 2px 0 #030101,
+    0 3px 0 #000000,
+    0 6px 0 transparent,
+    0 10px 10px rgba(0, 0, 0, .6);
+}
+
+@-webkit-keyframes bounce {
+  100% {
+    top: -60px;
+    text-shadow: 0 1px 0 #000000,
+      0 1px 0 #000000,
+      0 2px 0 #000000,
+      0 3px 0 #000000,
+      0 4px 0 #000000,
+      0 30px 30px rgba(0, 0, 0, .3);
+  }
+}
+
+.logo {
+  margin-top: 3%;
+  margin-left: 3%;
 }

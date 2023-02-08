@@ -1,73 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Audio-News</title>
 
-    <!-- Bulma CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-    <!-- CSS FILE-->
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio-News</title>
 
-  <body>
-    <!-- Added Bulma to style header -->
-    <header class="hero is-link">
-      <h1 class="hero-body title is-size-1">Audio News</h1>
-      <p style="text-align: center; font-size: 1rem">
-        PAGE UNDER HEAVY DEVELOPMENT !!!
-      </p>
-    </header>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <!-- CSS FILE-->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 
-    <main>
-      <!-- Section containing sidebar and articles -->
-      <section class="section columns">
-        <!-- Styled sidebar as menu -->
-        <aside class="sideBar menu column is-3">
-          <!-- Suggested Searches -->
-          <ol class="menu-list" style="list-style: none">
-            <li>
-              <p class="menu-label">Navigation</p>
-              <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a class="is-active">Favourites</a></li>
-              </ul>
-            </li>
+<body>
+  <!-- Added Bulma to style header -->
+  <header class="hero is-link">
+    <h1 class="hero-body title is-size-1">AUDIO <span>NEWS</span>
+  </header>
 
-            <!-- Contact -->
-            <li><a href="./contact.html">Contact</a></li>
-          </ol>
-        </aside>
+  <main>
+    <!-- Section containing sidebar and articles -->
+    <section class="section columns">
+      <!-- Styled sidebar as menu -->
+      <aside class="sideBar menu column is-3">
+        <!-- Suggested Searches -->
+        <ol class="menu-list" style="list-style: none">
+          <li>
+            <p class="menu-label">Navigation</p>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a class="is-active">Favourites</a></li>
+            </ul>
+          </li>
 
-        <!--Saved Articles-->
-        <div class="column">
-          <div class="hero is-danger">
-            <div class="hero-body">
-              <div class="container">
-                <h1 class="title">Your Favourites</h1>
-              </div>
-            </div>
-          </div>
-          <div id="favourites" class="columns is-multiline is-full-mobile is-full-tablet is-full-desktop is-full-widescreen is-full-fullhd" >
-            <div class="column">
+          <!-- Contact -->
+          <li><a href="./contact.html">Contact</a></li>
+        </ol>
+      </aside>
+
+      <!--Saved Articles-->
+      <div class="column">
+        <div class="hero is-danger">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title">Your Favourites</h1>
             </div>
           </div>
         </div>
-      </section>
-    </main>
-    <!-- JQUERY-->
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+        <div id="favourites"
+          class="columns is-multiline is-full-mobile is-full-tablet is-full-desktop is-full-widescreen is-full-fullhd">
+          <div class="column">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- JQUERY-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <!-- JAVASCRIPT FILE-->
-    <script src="assets/js/favourite.js"></script>
-  </body>
+  <!-- JAVASCRIPT FILE-->
+  <script src="assets/js/favourite.js"></script>
+</body>
+<!-- Footer-->
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Assembled by the Audio News Team. </strong> The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+      is powered by <a href="https://www.voicerss.org/">VoiceRSS</a> & <a href="https://gnews.io/">GNews</a>.
+    </p>
+  </div>
+</footer>
+
 </html>
