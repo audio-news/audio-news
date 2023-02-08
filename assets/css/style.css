@@ -118,6 +118,10 @@ h4 {
   height: 100%;
 }
 
+.button.is-danger.is-outlined:hover {
+  background-color: #ffa1b4 !important;
+}
+
 [id^="item"] {
   display: none;
 }
