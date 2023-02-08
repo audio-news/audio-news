@@ -8,7 +8,7 @@ function userFormSubmit(event) {
 
   const topic = userTopicSelect.val();
   if (topic) {
-    const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+    const apikey = "3b64668f943a2a88bd9cf8517c24086f";
     const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
     getNewsData(newsurl);
     userTopicSelect.val("");
@@ -134,7 +134,7 @@ makes an api call to return the top 7 articles for a trend (first 5 will appear 
 displayed below the carousel)*/
 function displayHeadlines(trend) {
   const trendTopic = trend.attr("id");
-  const apikey = "6c567cc9914a3b820af13132977057d8";
+  const apikey = "3b64668f943a2a88bd9cf8517c24086f";
   const trendUrl = `https://gnews.io/api/v4/top-headlines?topic=${trendTopic}&token=${apikey}&lang=en&country=us&max=7`;
 
   fetch(trendUrl)
