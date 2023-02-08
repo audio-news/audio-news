@@ -46,6 +46,7 @@ function getNewsArticles(data) {
     var articleTitle = articles[i]["title"];
     var articleDesc = articles[i]["description"];
     var articleImgUrl = articles[i]["image"];
+    var articleUrl = articles[i]["url"];
 
     //Changes the background image of the carousel item to the article image
     var carouselCard = $(`.carousel-item.item-${i + 1}`);
@@ -58,6 +59,7 @@ function getNewsArticles(data) {
     //in the css and will be displayed only when the user clicks on a specific article
     var carouselCardDesc = `<footer class="card-footer has-text-centered has-background-white">
       <p class="card-footer-item">${articleDesc}</p>
+      <p><a href="${articleUrl}" target="_blank"><button class="button read-more" type="button"> Read More </button></a></p>
       </footer>`;
     carouselCard.append(carouselCardDesc);
   }
@@ -65,7 +67,8 @@ function getNewsArticles(data) {
 
 var selectedArticle = $(".carousel-item");
 selectedArticle.on("click", function (event) {
-  if ($(event.target).is("a")) {
+  console.log($(event.target));
+  if ($(event.target).is("a") || $(event.target).is("button.button.read-more")) {
     if (audio) {
       audio.pause();
     }
@@ -127,7 +130,7 @@ menuLink.on("click", function (event) {
 suggested searches menu, this function displays articles that won't be displayed in the carousel. The function
 makes an api call to return the top 7 articles for a trend (first 5 will appear in carousel and remaining 2 will be
 displayed below the carousel)*/
-function displayTrends(trend) {
+function displayHeadlines(trend) {
   const trendTopic = trend.attr("id");
   const apikey = "1d43572a6aa2cb5240480cade17ec294";
   const trendUrl = `https://gnews.io/api/v4/top-headlines?topic=${trendTopic}&token=${apikey}&lang=en&country=us&max=7`;
@@ -143,6 +146,7 @@ function displayTrends(trend) {
             var trendTitle = articles[i + 5]["title"];
             var trendDesc = articles[i + 5]["description"];
             var trendImgUrl = articles[i + 5]["image"];
+            var trendUrl = articles[i + 5]["url"];
 
             $(trendCards[i])
               .find(".card-image")
@@ -156,6 +160,11 @@ function displayTrends(trend) {
               .find(".card-content")
               .find(".content")
               .text(trendDesc);
+            $(trendCards[i])
+              .find(".card-content")
+              .find(".buttons")
+              .find("a")
+              .attr("href", trendUrl);
           }
         });
       } else {
@@ -167,14 +176,59 @@ function displayTrends(trend) {
     });
 }
 
+/* Checks the headline article that was clicked by the user. When the user clicks on the article, the audio of its 
+description is played. If the user clicks on the article again it pauses the audio. If the user clicks on a different
+article, it pauses the audio and plays the audio of the new article */
+var checkHeadlineAudio = null;
+var headlineArticle = $(".headline-article");
+headlineArticle.on("click", function (event) {
+    const headlineDesc = $(event.currentTarget).find(".media-content").find(".content").text();
+    var currentHeadline = $(this);
+    var checkUserRead = false;
+    //stops the audio if the user clicks on read more to go to a new tab and read the full article
+    if ($(event.target).is("button.button.read-more")) {
+        if (audio) {
+            audio.pause();
+            checkUserRead = true;
+        }
+        return;
+    }
+
+    if (checkHeadlineAudio === $(currentHeadline)[0]) {
+        if (audio.ended || checkUserRead) {
+            checkUserRead = false;
+            audio = null;
+            fetchTTS(headlineDesc);
+        }
+        else {
+            audio.pause();
+            audio = null;
+        }
+        checkHeadlineAudio = null;
+    }
+    else {
+        if (checkHeadlineAudio) {
+            audio.pause();
+            audio = null;
+        }
+        fetchTTS(headlineDesc);
+        checkHeadlineAudio = $(currentHeadline)[0];
+    }
+});
+
 $(document).ready(function () {
+  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+  const randTopic = "lifestyle";
+  const topicsUrl = `https://gnews.io/api/v4/top-headlines?q=${randTopic}&token=${apikey}&lang=en&country=us&max=5`;
+  getNewsData(topicsUrl);
+
   const trendBreaking = $("#breaking-news");
   const trendWorld = $("#world");
   const trendEntertainment = $("#entertainment");
 
-  displayTrends(trendBreaking);
-  displayTrends(trendWorld);
-  displayTrends(trendEntertainment);
+  displayHeadlines(trendBreaking);
+  displayHeadlines(trendWorld);
+  displayHeadlines(trendEntertainment);
 
   /* Reverts the attributes and styles of each save button for each article to what it last was before the user 
   reloaded the page. The data attribute lets us keep track of which articles were saved */
