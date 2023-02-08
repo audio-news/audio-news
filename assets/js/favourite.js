@@ -1,13 +1,12 @@
 function displaySavedArticles() {
-    var favColumn = $("#favourites");
-    var savedArticles = JSON.parse(localStorage.getItem("user_fav_articles"));
-    if (savedArticles == null) {
-      savedArticles = [];
-    }
+    var favColumn = $("#favourites .column");
 
-    for (var i = 0; i < savedArticles.length;i++){
-        favColumn.append(savedArticles[i]);
-    }
+    const savedArticles = JSON.parse(localStorage.getItem("savedArticles")) || [];
+
+    savedArticles.forEach(article => {
+        favColumn.append($(Object.values(article)[0]));
+    });
+    console.log(favColumn[0].outerHTML)
 }
 
 displaySavedArticles();
