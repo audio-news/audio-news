@@ -8,7 +8,7 @@ function userFormSubmit(event) {
 
   const topic = userTopicSelect.val();
   if (topic) {
-    const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+    const apikey = "1d43572a6aa2cb5240480cade17ec294";
     const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
     getNewsData(newsurl);
     userTopicSelect.val("");
@@ -121,7 +121,7 @@ function fetchTTS(text) {
 var menuLink = $(".menu-link");
 menuLink.on("click", function (event) {
   const menuTopic = $(event.target).text().toLowerCase();
-  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+  const apikey = "1d43572a6aa2cb5240480cade17ec294";
   const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicUrl);
 });
@@ -132,7 +132,7 @@ makes an api call to return the top 7 articles for a trend (first 5 will appear 
 displayed below the carousel)*/
 function displayHeadlines(trend) {
   const trendTopic = trend.attr("id");
-  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+  const apikey = "1d43572a6aa2cb5240480cade17ec294";
   const trendUrl = `https://gnews.io/api/v4/top-headlines?topic=${trendTopic}&token=${apikey}&lang=en&country=us&max=7`;
 
   fetch(trendUrl)
@@ -229,7 +229,75 @@ $(document).ready(function () {
   displayHeadlines(trendBreaking);
   displayHeadlines(trendWorld);
   displayHeadlines(trendEntertainment);
+
+  /* Reverts the attributes and styles of each save button for each article to what it last was before the user 
+  reloaded the page. The data attribute lets us keep track of which articles were saved */
+  $(".saveBtn").each(function () {
+    var saveButton = $(this);
+    var buttonId = $(this).attr("id");
+    //The localStorage contains the button id's as the key and a "saved" status as its value
+    var savedStatus = localStorage.getItem(buttonId); 
+    if (savedStatus === "saved") {
+      //Applies attributes & styles to that of a saved button
+      $(this).removeClass("is-outlined");
+      saveButton.attr("data-saved", "yes");
+      saveButton.css("background-color", "red");
+    } else {
+      //Applies attributes & styles to that of an unsaved button
+      $(this).addClass("is-outlined");
+      saveButton.attr("data-saved", "no");
+      saveButton.css("background-color", "");
+    }
+  });
 });
 
+var articleCards = $(".card");
+articleCards.on("click", ".buttons button.saveBtn", saveArticle);
+
+/* When the user clicks on the favourites button to save an article, it will change the button's style & attributes and
+add the article to localStorage. If the article was already saved, then it unsaves the article and removes the 
+button's style & attributes and removes the article from the localStorage  */
+function saveArticle(event) {
+  //saves the html of the .card container element as a string
+  var favCard = $(event.delegateTarget)[0].outerHTML;
+  var storedCards = JSON.parse(localStorage.getItem("user_fav_articles"));
+  if (storedCards == null) {
+    storedCards = [];
+  }
+
+  /* Checks the data attribute of the button to see if the current article has been saved already.*/
+  var saveButton = $(event.currentTarget);
+  var buttonId = saveButton.attr("id");
+  if (saveButton.attr("data-saved") === "yes") {
+    var indexFavCard;
+    for (var i = 0; i < storedCards.length; i++) {
+      if (JSON.stringify(favCard) === JSON.stringify(storedCards[i])) {
+        indexFavCard = i;
+        break;
+      }
+    }
+    //Removes the article from the array and the localStorage
+    storedCards.splice(indexFavCard, 1);
+    localStorage.setItem("user_fav_articles", JSON.stringify(storedCards));
+
+    //Resets the button attributes since now the button has been unsaved
+    saveButton.addClass("is-outlined");
+    saveButton.css("background-color", "transparent");
+    saveButton.attr("data-saved", "no");
+    //localStorage keeps track of which buttons are saved so we update its styles and attributes when the user reloads the page
+    localStorage.removeItem(buttonId);
+  } else {
+    //Changes the button attributes and styles to show it as a saved item
+    saveButton.removeClass("is-outlined");
+    saveButton.css("background-color", "red");
+    saveButton.attr("data-saved", "yes");
+    localStorage.setItem(buttonId, "saved");
+
+    //Gets the updated html with the changed button styles and attributes and add its to the array and localStorage
+    favCard = $(event.delegateTarget)[0].outerHTML;
+    storedCards.unshift(favCard);
+    localStorage.setItem("user_fav_articles", JSON.stringify(storedCards));
+  }
+}
 /* Runs the userFormSubmit function when the form on the screen is submitted */
-userTopicForm.submit(userFormSubmit);
+userTopicForm.on("submit", userFormSubmit);
