@@ -10,7 +10,7 @@ function userFormSubmit(event) {
 
   const topic = userTopicSelect.val();
   if (topic) {
-    const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+    const apikey = "a3dd881c258019c389b401af05b371ed";
     const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
     getNewsData(newsurl);
     userTopicSelect.val("");
@@ -107,7 +107,7 @@ var audio = null;
 /* Fetches VoiceRSS Text-to-Speech API with the selected article's description text as an argument.The function 
 generates an audio format in the browser window which plays a voice reading the selected article's description*/
 function fetchTTS(text) {
-  const API_KEY = "e5bd0e9876784ba4b37cb873babe6e39";
+  const API_KEY = "f546625de3e8bded01dda46f282040a8";
   const language = "en-us";
   const voice = "Mike";
   const codec = "MP3";
@@ -137,7 +137,7 @@ var menuLink = $(".menu-link");
 menuLink.on("click", getSuggestedArticle);
 function getSuggestedArticle(event) {
   const menuTopic = $(event.target).text().toLowerCase();
-  const apikey = "a87c194102cb5e1b9761c7b75ac51bc6";
+  const apikey = "f546625de3e8bded01dda46f282040a8";
   const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicUrl);
 };
@@ -148,7 +148,7 @@ carousel. The function makes an api call to return the top 7 articles for a tren
 and remaining 2 will be displayed below the carousel)*/
 function displayHeadlines(trend) {
   const trendTopic = trend.attr("id");
-  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+  const apikey = "a3dd881c258019c389b401af05b371ed";
   const trendUrl = `https://gnews.io/api/v4/top-headlines?topic=${trendTopic}&token=${apikey}&lang=en&country=us&max=7`;
 
   fetch(trendUrl)
@@ -245,7 +245,7 @@ function playHeadlineAudio(event) {
 /* Loads lifestyle articles in the carousel and loads headline articles below the carousel when the page is rendered.
 Also changes the styles & attributes of the save buttons to indicate if its respective article has been saved or not */
 $(document).ready(function () {
-  const apikey = "a87c194102cb5e1b9761c7b75ac51bc6";
+  const apikey = "f546625de3e8bded01dda46f282040a8";
   const randTopic = "lifestyle";
   const topicsUrl = `https://gnews.io/api/v4/top-headlines?q=${randTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicsUrl);
