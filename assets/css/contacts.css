@@ -1,3 +1,7 @@
+.hero-body.subtitle a{
+    text-decoration: underline;
+}
+
 #contacts{
     margin: 10px auto;
 }
