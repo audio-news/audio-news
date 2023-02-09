@@ -1,0 +1,83 @@
+.card{
+    margin: 10px 0;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.carousel-item.card {
+  background-size: contain;
+  background-position: center;
+  height: 600px;
+background-repeat: no-repeat;
+}
+
+div.card-header-title{
+    width: 100%;
+    position: absolute;
+    top: 50px;
+}
+
+footer.card-footer{
+position: absolute;
+    bottom: 50px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 80px;
+  font-weight: bold;
+  animation: ani 1s;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Signika Negative', sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* h1 animation */
+@keyframes ani {
+  from {
+    letter-spacing: 35px;
+    filter: blur(5px);
+    opacity: 0;
+  }
+
+  to {
+    letter-spacing: 0;
+    filter: blur(0);
+    opacity: 1px;
+  }
+}
+
+h1 span {
+  padding: 0px 70px 10px 5px;
+  background-color: rgb(19, 19, 75);
+}
+
+nav a {
+  margin-left: 2%;
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+}
+
+.footer {
+  margin-top: 8%;
+}
+
+.sideBar {
+  background-color: aliceblue;
+  box-shadow: 0 0 5px black;
+}
+
+.sideList .newsTags {
+  list-style-type: none;
+  padding: 1em;
+  margin: 0;
+  flex: 1;
+}
+
+/* Made menu labels larger */
+.menu-label {
+  font-size: 1rem;
+}
