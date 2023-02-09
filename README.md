@@ -8,7 +8,13 @@ Audio News is a website that allows you to search news articles and then have th
 Download the github repository and launch the website by opening the Index.HTML in your prefered browser.
 
 ## User Story
-As a user, I want to be able to search for a keyword/topic, so that suggested news articles will be read out to me.
+As a user, I want to be able to search for a key word, so that suggested news articles will be read out to me.
+
+Given a search box
+When I type in a key word
+Then the web site populates 5 articles in a carousel 
+When I select one article
+Then the website will read out the article
 
 ## Instructions
 

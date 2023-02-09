@@ -121,7 +121,7 @@ var audio = null;
 /* Fetches VoiceRSS Text-to-Speech API with the selected article's description text as an argument.The function 
 generates an audio format in the browser window which plays a voice reading the selected article's description*/
 function fetchTTS(text) {
-  const API_KEY = "e5bd0e9876784ba4b37cb873babe6e39";
+  const API_KEY = "f546625de3e8bded01dda46f282040a8";
   const language = "en-us";
   const voice = "Mike";
   const codec = "MP3";
