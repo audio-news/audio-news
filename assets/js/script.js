@@ -12,6 +12,7 @@ function userFormSubmit(event) {
   if (topic) {
     const apikey = "a87c194102cb5e1b9761c7b75ac51bc6";
     const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
+    $(".current-topic").text(topic.toUpperCase());
     getNewsData(newsurl);
     userTopicSelect.val("");
   } else {
@@ -75,7 +76,7 @@ function getNewsArticles(data) {
 /* When the carousel article is clicked on, it reveals the footer of the carousel item that contains the article's 
 description and plays the audio of the description */
 var selectedArticle = $(".carousel-item");
-var carouselClickedAfterHeadline = false; //Check if the use clicked on a carousel article after clicking a headline article
+var carouselClickedAfterHeadline = false; //Checks if the use clicked on a carousel article after clicking a headline article
 selectedArticle.on("click", playCarouselAudio);
 function playCarouselAudio(event) {
   //stops the audio if the user clicks on the read more button or the carousel <> arrows to slide through
@@ -154,6 +155,7 @@ function getSuggestedArticle(event) {
   const menuTopic = $(event.target).text().toLowerCase();
   const apikey = "560505618e542f6b401b1214b756eb6e";
   const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
+  $(".current-topic").text(menuTopic.toUpperCase());
   getNewsData(topicUrl);
 };
 
@@ -165,6 +167,7 @@ function getHomeArticles() {
   const apikey = "c09cb33e13f449b45206fd88c72ce1c6";
   const randTopic = "lifestyle";
   const topicsUrl = `https://gnews.io/api/v4/top-headlines?q=${randTopic}&token=${apikey}&lang=en&country=us&max=5`;
+  $(".current-topic").text(randTopic.toUpperCase());
   getNewsData(topicsUrl);
 }
 
@@ -290,6 +293,7 @@ $(document).ready(function () {
   const apikey = "3b64668f943a2a88bd9cf8517c24086f";
   const randTopic = "lifestyle";
   const topicsUrl = `https://gnews.io/api/v4/top-headlines?q=${randTopic}&token=${apikey}&lang=en&country=us&max=5`;
+  $(".current-topic").text(randTopic.toUpperCase());
   getNewsData(topicsUrl);
 
   const trendBreaking = $("#breaking-news");
