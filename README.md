@@ -45,12 +45,12 @@ If you scroll down to the headline section you will see top stories for each spe
 ## Screenshot
 
 ![audio-news](https://user-images.githubusercontent.com/100619060/217934436-35461283-4688-45b2-8145-7ceb48fcae5e.png)
-alt="a photo of the main screen"
+[![A screenshot of the mainpage]({![audio-news](https://user-images.githubusercontent.com/100619060/217934436-35461283-4688-45b2-8145-7ceb48fcae5e.png)})]({video-url} "Screenshot")
 
 ## Video Tutorial
 
 https://user-images.githubusercontent.com/100619060/217935367-344af48a-0d1a-49ad-a6d6-5e090affcbc6.mp4
-alt="a video tutorial of the webaplication in use"
+[![A video tutorial of the webpage in action]({image-url})]({https://user-images.githubusercontent.com/100619060/217935367-344af48a-0d1a-49ad-a6d6-5e090affcbc6.mp4} "Video tutorial")
 
 ## Built With
 
