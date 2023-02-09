@@ -44,13 +44,11 @@ If you scroll down to the headline section you will see top stories for each spe
 
 ## Screenshot
 
-![audio-news](https://user-images.githubusercontent.com/100619060/217934436-35461283-4688-45b2-8145-7ceb48fcae5e.png)
-[![A screenshot of the mainpage]({![audio-news](https://user-images.githubusercontent.com/100619060/217934436-35461283-4688-45b2-8145-7ceb48fcae5e.png)})]({video-url} "Screenshot")
+![Screenshot of the homepage for audio news website](assets/images/audio-news.png)
 
 ## Video Tutorial
 
-https://user-images.githubusercontent.com/100619060/217935367-344af48a-0d1a-49ad-a6d6-5e090affcbc6.mp4
-[![A video tutorial of the webpage in action]({image-url})]({https://user-images.githubusercontent.com/100619060/217935367-344af48a-0d1a-49ad-a6d6-5e090affcbc6.mp4} "Video tutorial")
+![A video tutorial of the website in action](assets/images/audio-news-tutorial.mp4)
 
 ## Built With
 
