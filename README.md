@@ -62,11 +62,11 @@ https://user-images.githubusercontent.com/100619060/217940242-f90744a7-8333-45af
 
 ## Contributors
 
-Julia Bernst - [GitHub](https://github.com/jubernst)
-Jacob MacDonald - [GitHub](https://github.com/MadDonald)
-Abdelrahman Ahmed - [GitHub](https://github.com/AbdelrahmanAhmed605)
-Gabriel Tuason - [GitHub](https://github.com/gabetuason)
-Zoheir Bakarally - 
+- Julia Bernst - [GitHub](https://github.com/jubernst)
+- Jacob MacDonald - [GitHub](https://github.com/MadDonald)
+- Abdelrahman Ahmed - [GitHub](https://github.com/AbdelrahmanAhmed605)
+- Gabriel Tuason - [GitHub](https://github.com/gabetuason)
+- Zoheir Bakarally - 
 
 ## Deployed URL
 
