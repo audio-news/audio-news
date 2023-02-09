@@ -1,0 +1,21 @@
+.card{
+    margin: 10px 0;
+}
+
+.carousel-item.card {
+  background-size: contain;
+  background-position: center;
+  height: 600px;
+background-repeat: no-repeat;
+}
+
+div.card-header-title{
+    width: 100%;
+    position: absolute;
+    top: 50px;
+}
+
+footer.card-footer{
+position: absolute;
+    bottom: 50px;
+}

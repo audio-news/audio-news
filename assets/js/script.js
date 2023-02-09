@@ -10,7 +10,7 @@ function userFormSubmit(event) {
 
   const topic = userTopicSelect.val();
   if (topic) {
-    const apikey = "6c567cc9914a3b820af13132977057d8";
+    const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
     const newsurl = `https://gnews.io/api/v4/search?q=${topic}&token=${apikey}&lang=en&country=us&max=5`;
     getNewsData(newsurl);
     userTopicSelect.val("");
@@ -63,8 +63,8 @@ function getNewsArticles(data) {
     var articleUrl = articles[i]["url"];
     carouselCard.find("footer").remove();
     var carouselCardDesc = `<footer class="card-footer has-text-centered has-background-white">
-      <p class="card-footer-item">${articleDesc}</p>
-      <p><a href="${articleUrl}" target="_blank"><button class="button read-more" type="button"> Read More </button></a></p>
+      <p class="footer-text">${articleDesc}</p>
+      <div class="buttons is-right are-small"><a href="${articleUrl}" target="_blank"><button class="button read-more" type="button"> Read More </button></a></div>
       </footer>`;
     carouselCard.append(carouselCardDesc);
   }
@@ -98,7 +98,7 @@ function playCarouselAudio(event) {
 
   //Gets the description text of the selected article and plays the audio
   var selectedDescText = selectedArticleDesc
-    .children("p.card-footer-item")
+    .children("p.footer-text")
     .text();
   fetchTTS(selectedDescText);
 };
@@ -137,7 +137,7 @@ var menuLink = $(".menu-link");
 menuLink.on("click", getSuggestedArticle);
 function getSuggestedArticle(event) {
   const menuTopic = $(event.target).text().toLowerCase();
-  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+  const apikey = "a87c194102cb5e1b9761c7b75ac51bc6";
   const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicUrl);
 };
@@ -148,7 +148,7 @@ carousel. The function makes an api call to return the top 7 articles for a tren
 and remaining 2 will be displayed below the carousel)*/
 function displayHeadlines(trend) {
   const trendTopic = trend.attr("id");
-  const apikey = "6c567cc9914a3b820af13132977057d8";
+  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
   const trendUrl = `https://gnews.io/api/v4/top-headlines?topic=${trendTopic}&token=${apikey}&lang=en&country=us&max=7`;
 
   fetch(trendUrl)
@@ -245,7 +245,7 @@ function playHeadlineAudio(event) {
 /* Loads lifestyle articles in the carousel and loads headline articles below the carousel when the page is rendered.
 Also changes the styles & attributes of the save buttons to indicate if its respective article has been saved or not */
 $(document).ready(function () {
-  const apikey = "07334c52fbc3d7575a0c2e5ad46987ab";
+  const apikey = "a87c194102cb5e1b9761c7b75ac51bc6";
   const randTopic = "lifestyle";
   const topicsUrl = `https://gnews.io/api/v4/top-headlines?q=${randTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicsUrl);
