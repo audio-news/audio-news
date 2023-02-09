@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Audio-News</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio-News</title>
 
-  <!-- Bulma CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <!-- Bulma CSS -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
 
-  <!-- Google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Signika+Negative:wght@500&display=swap"
-    rel="stylesheet">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&family=Signika+Negative:wght@500&display=swap"
+      rel="stylesheet">
 
-  <!-- CSS FILE-->
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
+    <!-- CSS FILE-->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
 <body>
   <!-- Added Bulma to style header -->
@@ -28,340 +30,387 @@
       <h1 class="title is-size-1 ml-6"> AUDIO <span>NEWS</span></h1>
     </div>
     <p class="instructions">
-      CLICK AN IMAGE TO LISTEN
+      CLICK AN IMAGE TO PLAY/PAUSE AUDIO
     </p>
     <br>
   </header>
 
-  <main>
-    <!-- Section containing sidebar and carousel -->
-    <section class="section columns">
-      <!-- Styled sidebar as menu -->
-      <aside class="sideBar menu column is-3">
-        <!-- Search Box-->
-        <form class="menu-list searchBox">
-          <label for="user-input">Find your news</label>
-          <input class="input" type="text" id="user-input" name="user-input" placeholder="Find articles. . ." />
-          <button type="submit" class="button search-button
+    <main>
+      <!-- Section containing sidebar and carousel -->
+      <section class="section columns">
+        <!-- Styled sidebar as menu -->
+        <aside class="sideBar menu column is-3">
+          <!-- Search Box-->
+          <form class="menu-list searchBox">
+            <label for="user-input">Find your news</label>
+            <input class="input" type="text" id="user-input" name="user-input"
+              placeholder="Find articles. . ." />
+            <button type="submit" class="button search-button
               is-link">
-            Search
-          </button>
-        </form>
-        <!-- Suggested Searches -->
-        <ol class="menu-list" style="list-style: none">
-          <li>
-            <p class="menu-label">Navigation</p>
-            <ul>
-              <li><a id="home" class="is-active">Home</a></li>
-              <li><a href="./favourites.html">Favourites</a></li>
-              <li><a href="./contact.html">Contact</a></li>
-            </ul>
-          </li>
-          <li>
-            <p class="menu-label">Suggested Searches</p>
-            <ul>
-              <li><a class="menu-link">Breaking-News</a></li>
-              <li><a class="menu-link">World</a></li>
-              <li><a class="menu-link">Nation</a></li>
-              <li><a class="menu-link">Business</a></li>
-              <li><a class="menu-link">Technology</a></li>
-              <li><a class="menu-link">Entertainment</a></li>
-              <li><a class="menu-link">Sports</a></li>
-              <li><a class="menu-link">Science</a></li>
-              <li><a class="menu-link">Health</a></li>
-            </ul>
-          </li>
+              Search
+            </button>
+          </form>
+          <!-- Suggested Searches -->
+          <ol class="menu-list" style="list-style: none">
+            <li>
+              <p class="menu-label">Navigation</p>
+              <ul>
+                <li><a id="home" class="is-active">Home</a></li>
+                <li><a href="./favourites.html">Favourites</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+              </ul>
+            </li>
+            <li>
+              <p class="menu-label">Suggested Searches</p>
+              <ul>
+                <li><a class="menu-link">Breaking-News</a></li>
+                <li><a class="menu-link">World</a></li>
+                <li><a class="menu-link">Nation</a></li>
+                <li><a class="menu-link">Business</a></li>
+                <li><a class="menu-link">Technology</a></li>
+                <li><a class="menu-link">Entertainment</a></li>
+                <li><a class="menu-link">Sports</a></li>
+                <li><a class="menu-link">Science</a></li>
+                <li><a class="menu-link">Health</a></li>
+              </ul>
+            </li>
 
-        </ol>
-      </aside>
+          </ol>
+        </aside>
 
-      <!-- Use columns to position carousel -->
-      <div class="carousel-wrapper card column is-7 is-offset-1">
-        <span id="item-1"></span>
-        <span id="item-2"></span>
-        <span id="item-3"></span>
-        <span id="item-4"></span>
-        <span id="item-5"></span>
-        <!-- Changed carousel items to cards -->
-        <div class="carousel-item item-1 card">
-          <!-- Article Title -->
-          <div class="card-header-title is-centered
-              has-text-centered has-background-white">
-            <span class="title-text"></span>
-            <div class="buttons is-right are-small">
-              <button id="carousel-save-1" class="button is-danger is-outlined
-                  is-rounded saveBtn" data-saved="no">
-                <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-              </button>
+        <!-- Use columns to position carousel -->
+        <div class="column is-7 is-offset-1">
+          <div class="display-topic card has-background-link-light">
+            <div class="card-header-title is-centered
+              has-text-centered">
+              <span class="current-topic"></span>
             </div>
           </div>
-          <!-- Look into replacing these with buttons for visibility -->
-          <a href="#item-5" class="arrow-prev arrow"></a>
-          <a href="#item-2" class="arrow-next arrow"></a>
+          <div class="carousel-wrapper card">
+            <span id="item-1"></span>
+            <span id="item-2"></span>
+            <span id="item-3"></span>
+            <span id="item-4"></span>
+            <span id="item-5"></span>
+            <!-- Changed carousel items to cards -->
+            <div class="carousel-item item-1 card">
+              <!-- Article Title -->
+              <div class="card-header-title is-centered
+                has-text-centered has-background-white">
+                <span class="title-text"></span>
+                <div class="buttons is-right are-small">
+                  <button id="carousel-save-1" class="button is-danger
+                    is-outlined
+                    is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                </div>
+              </div>
+              <!-- Look into replacing these with buttons for visibility -->
+              <a href="#item-5" class="arrow-prev arrow"></a>
+              <a href="#item-2" class="arrow-next arrow"></a>
+            </div>
+
+            <div class="carousel-item item-2 card">
+              <div class="card-header-title is-centered
+                has-text-centered has-background-white">
+                <span class="title-text"></span>
+                <div class="buttons is-right are-small">
+                  <button id="carousel-save-2" class="button is-danger
+                    is-outlined
+                    is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                </div>
+              </div>
+              <a href="#item-1" class="arrow-prev arrow"></a>
+              <a href="#item-3" class="arrow-next arrow"></a>
+            </div>
+
+            <div class="carousel-item item-3 card">
+              <div class="card-header-title is-centered
+                has-text-centered has-background-white">
+                <span class="title-text"></span>
+                <div class="buttons is-right are-small">
+                  <button id="carousel-save-3" class="button is-danger
+                    is-outlined
+                    is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                </div>
+              </div>
+              <a href="#item-2" class="arrow-prev arrow"></a>
+              <a href="#item-4" class="arrow-next arrow"></a>
+            </div>
+
+            <div class="carousel-item item-4 card">
+              <div class="card-header-title is-centered
+                has-text-centered has-background-white">
+                <span class="title-text"></span>
+                <div class="buttons is-right are-small">
+                  <button id="carousel-save-4" class="button is-danger
+                    is-outlined
+                    is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                </div>
+              </div>
+              <a href="#item-3" class="arrow-prev arrow"></a>
+              <a href="#item-5" class="arrow-next arrow"></a>
+            </div>
+
+            <div class="carousel-item item-5 card">
+              <div class="card-header-title is-centered
+                has-text-centered has-background-white">
+                <span class="title-text"></span>
+                <div class="buttons is-right are-small">
+                  <button id="carousel-save-5" class="button is-danger
+                    is-outlined
+                    is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                </div>
+              </div>
+              <a href="#item-4" class="arrow-prev arrow"></a>
+              <a href="#item-1" class="arrow-next arrow"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--Further Articles-->
+    <section>
+      <div class="hero is-primary">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">Breaking-News</h1>
+          </div>
+        </div>
+      </div>
+      <div id="breaking-news" class="columns is-multiline is-half-mobile
+        is-half-tablet
+        is-half-desktop is-half-widescreen is-half-fullhd">
+        <div class="column">
+          <div id="breaking-card-1" class="card headline-card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png"
+                  alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media-content">
+                <p class="title is-4"></p>
+                <p class="content is-6 description"></p>
+                <div class="buttons is-right are-small">
+                  <button id="breaking-saveBtn-1" class="button is-danger
+                    is-outlined is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                  <a href="" target="_blank"><button class="button read-more"
+                      type="button">
+                      Read More
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div id="breaking-card-2" class="card headline-card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png"
+                  alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media-content">
+                <p class="title is-4"></p>
+                <p class="content is-6 description"></p>
+                <div class="buttons is-right are-small">
+                  <button id="breaking-saveBtn-2" class="button is-danger
+                    is-outlined is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                  <a href="" target="_blank"><button class="button read-more"
+                      type="button">
+                      Read More
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero is-primary">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">World News</h1>
+          </div>
+        </div>
+      </div>
+      <div id="world" class="columns is-multiline is-half-mobile is-half-tablet
+        is-half-desktop is-half-widescreen is-half-fullhd">
+        <div class="column">
+          <div id="world-card-1" class="card headline-card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png"
+                  alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media-content">
+                <p class="title is-4"></p>
+                <p class="content is-6 description"></p>
+                <div class="buttons is-right are-small">
+                  <button id="world-saveBtn-1" class="button is-danger
+                    is-outlined
+                    is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                  <a href="" target="_blank"><button class="button read-more"
+                      type="button">
+                      Read More
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="carousel-item item-2 card">
-          <div class="card-header-title is-centered
-              has-text-centered has-background-white">
-            <span class="title-text"></span>
-            <div class="buttons is-right are-small">
-              <button id="carousel-save-2" class="button is-danger is-outlined
-                                is-rounded saveBtn" data-saved="no">
-                <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-              </button>
+        <div class="column">
+          <div id="world-card-2" class="card headline-card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png"
+                  alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media-content">
+                <p class="title is-4"></p>
+                <p class="content is-6 description"></p>
+                <div class="buttons is-right are-small">
+                  <button id="world-saveBtn-2" class="button is-danger
+                    is-outlined
+                    is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                  <a href="" target="_blank"><button class="button read-more"
+                      type="button">
+                      Read More
+                    </button>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <a href="#item-1" class="arrow-prev arrow"></a>
-          <a href="#item-3" class="arrow-next arrow"></a>
+        </div>
+      </div>
+      <div class="hero is-primary">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">Entertainment News</h1>
+          </div>
+        </div>
+      </div>
+      <div id="entertainment" class="columns is-multiline is-half-mobile
+        is-half-tablet
+        is-half-desktop is-half-widescreen is-half-fullhd">
+        <div class="column">
+          <div id="entertainment-card-1" class="card headline-card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png"
+                  alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media-content">
+                <p class="title is-4"></p>
+                <p class="content is-6 description"></p>
+                <div class="buttons is-right are-small">
+                  <button id="entertainment-saveBtn-1" class="button is-danger
+                    is-outlined is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                  <a href="" target="_blank"><button class="button read-more"
+                      type="button">
+                      Read More
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="carousel-item item-3 card">
-          <div class="card-header-title is-centered
-              has-text-centered has-background-white">
-            <span class="title-text"></span>
-            <div class="buttons is-right are-small">
-              <button id="carousel-save-3" class="button is-danger is-outlined
-                                is-rounded saveBtn" data-saved="no">
-                <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-              </button>
+        <div class="column">
+          <div id="entertainment-card-2" class="card headline-card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png"
+                  alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media-content">
+                <p class="title is-4"></p>
+                <p class="content is-6 description"></p>
+                <div class="buttons is-right are-small">
+                  <button id="entertainment-saveBtn-2" class="button is-danger
+                    is-outlined is-rounded saveBtn" data-saved="no">
+                    <img class="image is-rounded is-16x16"
+                      src="./assets/images/heart-icon.png" />
+                  </button>
+                  <a href="" target="_blank"><button class="button read-more"
+                      type="button">
+                      Read More
+                    </button>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <a href="#item-2" class="arrow-prev arrow"></a>
-          <a href="#item-4" class="arrow-next arrow"></a>
-        </div>
-
-        <div class="carousel-item item-4 card">
-          <div class="card-header-title is-centered
-              has-text-centered has-background-white">
-            <span class="title-text"></span>
-            <div class="buttons is-right are-small">
-              <button id="carousel-save-4" class="button is-danger is-outlined
-                                is-rounded saveBtn" data-saved="no">
-                <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-              </button>
-            </div>
-          </div>
-          <a href="#item-3" class="arrow-prev arrow"></a>
-          <a href="#item-5" class="arrow-next arrow"></a>
-        </div>
-
-        <div class="carousel-item item-5 card">
-          <div class="card-header-title is-centered
-              has-text-centered has-background-white">
-            <span class="title-text"></span>
-            <div class="buttons is-right are-small">
-              <button id="carousel-save-5" class="button is-danger is-outlined
-                                is-rounded saveBtn" data-saved="no">
-                <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-              </button>
-            </div>
-          </div>
-          <a href="#item-4" class="arrow-prev arrow"></a>
-          <a href="#item-1" class="arrow-next arrow"></a>
         </div>
       </div>
     </section>
-  </main>
+    <!-- Footer-->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Assembled by the Audio News Team. </strong> The source code is
+          licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
+          website content
+          is powered by <a href="https://www.voicerss.org/">VoiceRSS</a> & <a
+            href="https://gnews.io/">GNews</a>.
+        </p>
+      </div>
+    </footer>
+    <!-- JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
 
-  <!--Further Articles-->
-  <section>
-    <div class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">Breaking-News</h1>
-        </div>
-      </div>
-    </div>
-    <div id="breaking-news" class="columns is-multiline is-half-mobile is-half-tablet
-        is-half-desktop is-half-widescreen is-half-fullhd">
-      <div class="column">
-        <div id="breaking-card-1" class="card headline-card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <p class="title is-4"></p>
-              <p class="content is-6 description"></p>
-              <div class="buttons is-right are-small">
-                <button id="breaking-saveBtn-1" class="button is-danger is-outlined is-rounded saveBtn" data-saved="no">
-                  <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-                </button>
-                <a href="" target="_blank"><button class="button read-more" type="button">
-                    Read More
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div id="breaking-card-2" class="card headline-card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <p class="title is-4"></p>
-              <p class="content is-6 description"></p>
-              <div class="buttons is-right are-small">
-                <button id="breaking-saveBtn-2" class="button is-danger is-outlined is-rounded saveBtn" data-saved="no">
-                  <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-                </button>
-                <a href="" target="_blank"><button class="button read-more" type="button">
-                    Read More
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">World News</h1>
-        </div>
-      </div>
-    </div>
-    <div id="world" class="columns is-multiline is-half-mobile is-half-tablet
-        is-half-desktop is-half-widescreen is-half-fullhd">
-      <div class="column">
-        <div id="world-card-1" class="card headline-card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <p class="title is-4"></p>
-              <p class="content is-6 description"></p>
-              <div class="buttons is-right are-small">
-                <button id="world-saveBtn-1" class="button is-danger is-outlined
-                    is-rounded saveBtn" data-saved="no">
-                  <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-                </button>
-                <a href="" target="_blank"><button class="button read-more" type="button">
-                    Read More
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div id="world-card-2" class="card headline-card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <p class="title is-4"></p>
-              <p class="content is-6 description"></p>
-              <div class="buttons is-right are-small">
-                <button id="world-saveBtn-2" class="button is-danger is-outlined
-                    is-rounded saveBtn" data-saved="no">
-                  <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-                </button>
-                <a href="" target="_blank"><button class="button read-more" type="button">
-                    Read More
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">Entertainment News</h1>
-        </div>
-      </div>
-    </div>
-    <div id="entertainment" class="columns is-multiline is-half-mobile is-half-tablet
-        is-half-desktop is-half-widescreen is-half-fullhd">
-      <div class="column">
-        <div id="entertainment-card-1" class="card headline-card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <p class="title is-4"></p>
-              <p class="content is-6 description"></p>
-              <div class="buttons is-right are-small">
-                <button id="entertainment-saveBtn-1" class="button is-danger
-                    is-outlined is-rounded saveBtn" data-saved="no">
-                  <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-                </button>
-                <a href="" target="_blank"><button class="button read-more" type="button">
-                    Read More
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div id="entertainment-card-2" class="card headline-card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <p class="title is-4"></p>
-              <p class="content is-6 description"></p>
-              <div class="buttons is-right are-small">
-                <button id="entertainment-saveBtn-2" class="button is-danger
-                    is-outlined is-rounded saveBtn" data-saved="no">
-                  <img class="image is-rounded is-16x16" src="./assets/images/heart-icon.png" />
-                </button>
-                <a href="" target="_blank"><button class="button read-more" type="button">
-                    Read More
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Footer-->
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Assembled by the Audio News Team. </strong> The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is powered by <a href="https://www.voicerss.org/">VoiceRSS</a> & <a href="https://gnews.io/">GNews</a>.
-      </p>
-    </div>
-  </footer>
-  <!-- JQUERY-->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-  <!-- JAVASCRIPT FILE-->
-  <script src="assets/js/script.js"></script>
-</body>
+    <!-- JAVASCRIPT FILE-->
+    <script src="assets/js/script.js"></script>
+  </body>
 
 </html>
