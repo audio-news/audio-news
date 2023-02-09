@@ -1,99 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Audio-News</title>
 
-    <!-- Bulma CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-    <!-- CSS FILE-->
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio-News</title>
 
-  <body>
-    <!-- Added Bulma to style header -->
-    <header class="hero is-link">
-      <h1 class="hero-body title is-size-1">Audio News</h1>
-      <p style="text-align: center; font-size: 1rem">
-        PAGE UNDER HEAVY DEVELOPMENT !!!
-      </p>
-    </header>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <!-- CSS FILE-->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 
-    <main>
-      <!-- Section containing sidebar and contact cards -->
-      <section class="section columns">
-        <!-- Styled sidebar as menu -->
-        <aside class="sideBar menu column is-3">
-          <!-- Suggested Searches -->
-          <ol class="menu-list" style="list-style: none">
-            <li>
-              <p class="menu-label">Navigation</p>
-              <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./favourites.html">Favourites</a></li>
-              </ul>
-            </li>
+<body>
+  <!-- Added Bulma to style header -->
+  <header class="hero is-link">
+    <h1 class="hero-body title is-size-1">AUDIO <span>NEWS</span>
+  </header>
 
-            <!-- Contact -->
-            <li><a class="is-active">Contact</a></li>
-          </ol>
-        </aside>
+  <main>
+    <!-- Section containing sidebar and contact cards -->
+    <section class="section columns">
+      <!-- Styled sidebar as menu -->
+      <aside class="sideBar menu column is-3">
+        <!-- Suggested Searches -->
+        <ol class="menu-list" style="list-style: none">
+          <li>
+            <p class="menu-label">Navigation</p>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./favourites.html">Favourites</a></li>
+            </ul>
+          </li>
 
-        <!-- Contact Cards-->
-        <div class="column">
-          <div class="hero is-success">
-            <div class="hero-body">
-              <div class="container">
-                <h1 class="title">The Audio News Team</h1>
+          <!-- Contact -->
+          <li><a class="is-active">Contact</a></li>
+        </ol>
+      </aside>
+
+      <!-- Contact Cards-->
+      <div class="column">
+        <div class="hero is-success">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title">The Audio News Team</h1>
+            </div>
+          </div>
+        </div>
+        <div id="contacts"
+          class="columns is-multiline is-half-mobile is-half-tablet is-half-desktop is-half-widescreen is-half-fullhd">
+          <!--Ahmed-->
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by4">
+                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media-content">
+                  <p class="title is-4"></p>
+                  <p class="content is-6"></p>
+                  <a href="#">GitHub</a>
+                </div>
               </div>
             </div>
           </div>
-          <div
-            id="contacts"
-            class="columns is-multiline is-half-mobile is-half-tablet is-half-desktop is-half-widescreen is-half-fullhd"
-          >
-            <!--Ahmed-->
-            <div class="column">
-              <div class="card">
-                <div class="card-image">
-                  <figure class="image is-4by4">
-                    <img
-                      src="https://bulma.io/images/placeholders/1280x960.png"
-                      alt="Placeholder image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media-content">
-                    <p class="title is-4"></p>
-                    <p class="content is-6"></p>
-                    <a href="#">GitHub</a>
-                  </div>
-                </div>
+          <!--Gabe-->
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by4">
+                  <img src="./assets/images/Gabe-dollar.jpg" alt="Placeholder image" />
+                </figure>
               </div>
-            </div>
-            <!--Gabe-->
-            <div class="column">
-              <div class="card">
-                <div class="card-image">
-                  <figure class="image is-4by4">
-                    <img
-                      src="https://bulma.io/images/placeholders/1280x960.png"
-                      alt="Placeholder image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media-content">
-                    <p class="title is-4"></p>
-                    <p class="content is-6"></p>
-                    <a href="#">GitHub</a>
-                  </div>
+              <div class="card-content">
+                <div class="media-content">
+                  <p class="title is-4">Gabriel Tuason</p>
+                  <p class="content is-6">Front-end worker of Audio News Team</p>
+                  <a href="https://github.com/gabetuason">GitHub</a>
                 </div>
               </div>
             </div>
@@ -103,78 +89,81 @@
                 <div class="card-image">
                   <figure class="image is-4by4">
                     <img
-                      src="https://bulma.io/images/placeholders/1280x960.png"
+                      src="./assets/images/jacob.jpg"
                       alt="Placeholder image"
                     />
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="media-content">
-                    <p class="title is-4"></p>
-                    <p class="content is-6"></p>
-                    <a href="#">GitHub</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Julia-->
-            <div class="column">
-              <div class="card">
-                <div class="card-image">
-                  <figure class="image is-4by4">
-                    <img
-                      src="./assets/images/julia.jpg"
-                      alt="A photo of Julia Bernst"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media-content">
-                    <p class="title is-4">Julia Bernst</p>
+                    <p class="title is-4">Jacob MacDonald</p>
                     <p class="content is-6">
-                      Julia is building her experience with web development in
-                      Toronto.
+                      Head assistant of Audio News Team
                     </p>
-                    <a href="#https://github.com/jubernst">GitHub</a>
-                    <a href="mailto:julia.bernst@gmail.com"
-                      >julia.bernst@gmail.com</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Zoheir-->
-            <div class="column">
-              <div class="card">
-                <div class="card-image">
-                  <figure class="image is-4by4">
-                    <img
-                      src="https://bulma.io/images/placeholders/1280x960.png"
-                      alt="Placeholder image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media-content">
-                    <p class="title is-4"></p>
-                    <p class="content is-6"></p>
-                    <a href="#">GitHub</a>
+                    <a href="https://github.com/MadDonald">GitHub</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <!--Julia-->
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by4">
+                  <img src="./assets/images/julia.jpg" alt="A photo of Julia Bernst" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media-content">
+                  <p class="title is-4">Julia Bernst</p>
+                  <p class="content is-6">
+                    Julia is building her experience with web development in
+                    Toronto.
+                  </p>
+                  <a href="https://github.com/jubernst">GitHub</a>
+                  <a href="mailto:julia.bernst@gmail.com">julia.bernst@gmail.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Zoheir-->
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by4">
+                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media-content">
+                  <p class="title is-4"></p>
+                  <p class="content is-6"></p>
+                  <a href="#">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-    </main>
-    <!-- JQUERY-->
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+      </div>
+    </section>
+  </main>
+  <!-- JQUERY-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <!-- JAVASCRIPT FILE-->
-    <script src="assets/js/script.js"></script>
-  </body>
+  <!-- JAVASCRIPT FILE-->
+  <script src="assets/js/script.js"></script>
+  <!-- Footer-->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Assembled by the Audio News Team. </strong> The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is powered by <a href="https://www.voicerss.org/">VoiceRSS</a> & <a href="https://gnews.io/">GNews</a>.
+      </p>
+    </div>
+  </footer>
+</body>
+
 </html>
