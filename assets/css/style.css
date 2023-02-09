@@ -4,9 +4,10 @@ h1 {
   font-size: 80px;
   font-weight: bold;
   animation: ani 1s;
-  text-align: center;
   font-family: 'Oswald', sans-serif;
   font-family: 'Signika Negative', sans-serif;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* h1 animation */
@@ -25,9 +26,17 @@ h1 {
 }
 
 h1 span {
-  padding: 3px 70px 10px 5px;
+  padding: 0px 70px 10px 5px;
   background-color: rgb(19, 19, 75);
 }
+
+.logo {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  vertical-align: middle;
+}
+
 
 nav a {
   margin-left: 2%;
@@ -35,18 +44,43 @@ nav a {
   color: rgb(0, 0, 0);
 }
 
-/*
-body {
-    background-color: rgb(9, 9, 83);
-}
-*/
 
 /* Class selectors */
+/* Instructions and shadow animation */
 .instructions {
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
-
   font-family: 'Oswald', sans-serif;
   font-family: 'Signika Negative', sans-serif;
+  font-size: 24px;
+  height: 100px;
+  margin: auto;
+  display: block;
+
+  -webkit-animation: bounce 1.7s ease infinite alternate;
+
+  color: rgb(249, 249, 255);
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  text-shadow: 0 1px 0 #000000,
+    0 2px 0 #030101,
+    0 3px 0 #000000,
+    0 6px 0 transparent,
+    0 10px 10px rgba(0, 0, 0, .6);
+}
+
+@-webkit-keyframes bounce {
+  100% {
+    top: -60px;
+    text-shadow: 0 1px 0 #000000,
+      0 1px 0 #000000,
+      0 2px 0 #000000,
+      0 3px 0 #000000,
+      0 4px 0 #000000,
+      0 30px 30px rgba(0, 0, 0, .3);
+  }
 }
 
 .footer {
@@ -202,45 +236,4 @@ h4 {
 #item-5:target ~ .item-5 {
   z-index: 3;
   opacity: 1;
-}
-
-/* Instructions shadow animation */
-.instructions {
-  display: flex;
-  flex-wrap: wrap;
-  font-family: 'Oswald', sans-serif;
-  font-family: 'Signika Negative', sans-serif;
-  font-size: 24px;
-  height: 100px;
-  margin: auto;
-  display: block;
-
-  -webkit-animation: bounce 1.7s ease infinite alternate;
-
-  color: rgb(249, 249, 255);
-  font-weight: 600;
-  text-align: center;
-  line-height: 100px;
-  text-shadow: 0 1px 0 #000000,
-    0 2px 0 #030101,
-    0 3px 0 #000000,
-    0 6px 0 transparent,
-    0 10px 10px rgba(0, 0, 0, .6);
-}
-
-@-webkit-keyframes bounce {
-  100% {
-    top: -60px;
-    text-shadow: 0 1px 0 #000000,
-      0 1px 0 #000000,
-      0 2px 0 #000000,
-      0 3px 0 #000000,
-      0 4px 0 #000000,
-      0 30px 30px rgba(0, 0, 0, .3);
-  }
-}
-
-.logo {
-  margin-top: 3%;
-  margin-left: 3%;
 }
