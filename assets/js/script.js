@@ -63,7 +63,7 @@ function getNewsArticles(data) {
     var articleUrl = articles[i]["url"];
     carouselCard.find("footer").remove();
     var carouselCardDesc = `<footer class="card-footer has-text-centered has-background-white">
-      <p class="footer-text">${articleDesc}</p>
+      <p class="footer-text description">${articleDesc}</p>
       <div class="buttons is-right are-small"><a href="${articleUrl}" target="_blank"><button class="button read-more" type="button"> Read More </button></a></div>
       </footer>`;
     carouselCard.append(carouselCardDesc);
@@ -75,11 +75,14 @@ function getNewsArticles(data) {
 /* When the carousel article is clicked on, it reveals the footer of the carousel item that contains the article's 
 description and plays the audio of the description */
 var selectedArticle = $(".carousel-item");
+var carouselClickedAfterHeadline = false; //Check if the use clicked on a carousel article after clicking a headline article
 selectedArticle.on("click", playCarouselAudio);
 function playCarouselAudio(event) {
-
   //stops the audio if the user clicks on the read more button or the carousel <> arrows to slide through
-  if ($(event.target).is("a") || $(event.target).is("button.button.read-more")) {
+  if (
+    $(event.target).is("a") ||
+    $(event.target).is("button.button.read-more")
+  ) {
     if (audio) {
       audio.pause();
     }
@@ -97,9 +100,20 @@ function playCarouselAudio(event) {
   selectedArticleDesc.css("justify-content", "flex-end");
 
   //Gets the description text of the selected article and plays the audio
-  var selectedDescText = selectedArticleDesc
-    .children("p.footer-text")
-    .text();
+  var selectedDescText = selectedArticleDesc.children("p.footer-text").text();
+
+  headlineClickedAfterCarousel = true; //After carousel is clicked, sets to true so when user clicks on a headline, it would confirm that carousel was clicked before it
+  //If the user clicked on a carousel article after a headline, then stop the headline article audio and play the carousel audio
+  if (carouselClickedAfterHeadline == true) {
+    if (audio !== null) {
+      audio.pause();
+      audio = null;
+    }
+    fetchTTS(selectedDescText);
+    carouselClickedAfterHeadline = false;
+    return;
+  }
+
   fetchTTS(selectedDescText);
 };
 
@@ -115,6 +129,7 @@ function fetchTTS(text) {
   const speed = 0;
   const requestUrl = `http://api.voicerss.org/?key=${API_KEY}&src=${text}&hl=${language}&v=${voice}&c=${codec}&f=${format}&r=${speed}`;
 
+  // headlineClickedAfterCarousel = true;
   //Checks if there's a current existing audio so audios don't overlap
   if (audio === null) {
     audio = new Audio(requestUrl);
@@ -141,6 +156,17 @@ function getSuggestedArticle(event) {
   const topicUrl = `https://gnews.io/api/v4/top-headlines?topic=${menuTopic}&token=${apikey}&lang=en&country=us&max=5`;
   getNewsData(topicUrl);
 };
+
+/* When the user clicks clicks on a suggested search, or makes their own search, this will allow them to click
+the home button in the nav to return to the initial carousel articles shown when the page was loaded */
+var homeLink = $("#home");
+homeLink.on("click", getHomeArticles)
+function getHomeArticles() {
+  const apikey = "f546625de3e8bded01dda46f282040a8";
+  const randTopic = "lifestyle";
+  const topicsUrl = `https://gnews.io/api/v4/top-headlines?q=${randTopic}&token=${apikey}&lang=en&country=us&max=5`;
+  getNewsData(topicsUrl);
+}
 
 /* Displays trending articles in the headline section below the carousel in the webpage. Since these trends are 
 also available in the suggested searches menu, this function displays articles that won't be displayed in the 
@@ -197,11 +223,15 @@ description is played. If the user clicks on the article again it pauses the aud
 article, it pauses the audio of the prev article and plays the audio of the new article */
 var prevHeadline = null;
 var headlineArticle = $(".headline-card");
+var checkUserRead = false; //Checks if the user clicked the 'read more' button to view the full article
+var headlineClickedAfterCarousel = false; //Check if the use clicked on a headline article after clicking a carousel article
 headlineArticle.on("click", playHeadlineAudio);
+
 function playHeadlineAudio(event) {
+  event.stopImmediatePropagation();
   const headlineDesc = $(event.currentTarget).find(".media-content").find(".content").text();
   var currentHeadline = $(this);
-  var checkUserRead = false; //Checks if the user clicked the 'read more' button to view the full article
+  carouselClickedAfterHeadline = true; //After headline is clicked, sets to true so when user clicks on a carousel, it would confirm that headline was clicked before it
 
   //Keeps audio playing if user clicks on the saveBtn while listening to the audio
   if ($(event.target).is("button.saveBtn") || $(event.target).is("button.saveBtn img")) {
@@ -214,6 +244,18 @@ function playHeadlineAudio(event) {
       audio.pause();
       checkUserRead = true; 
     }
+    return;
+  }
+
+//If the user clicked on a headline article after a carousel, then stop the carousel article audio and play the headline audio
+  if (headlineClickedAfterCarousel == true) {
+    if (audio !== null) {
+      audio.pause();
+      audio = null;
+    }
+    fetchTTS(headlineDesc);
+    prevHeadline = $(currentHeadline)[0];
+    headlineClickedAfterCarousel = false;
     return;
   }
 

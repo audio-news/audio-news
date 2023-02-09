@@ -99,10 +99,6 @@ nav a {
   flex: 1;
 }
 
-.newscards {
-  background-color: aliceblue;
-}
-
 .search-button {
   display: inline-block;
   font-size: 15px;
@@ -159,7 +155,7 @@ h4 {
 }
 
 .arrow {
-  border: solid black;
+  border: solid rgb(0, 0, 0);
   border-width: 0 7px 7px 0;
   display: inline-block;
   padding: 12px;
@@ -198,27 +194,22 @@ h4 {
 .item-1 {
   z-index: 2;
   opacity: 1;
-  background: url("../images/test-image1.jpg");
   background-size: cover;
 }
 
 .item-2 {
-  background: url("../images/test-image2.jpg");
   background-size: cover;
 }
 
 .item-3 {
-  background: url("../images/test-image3.jpg");
   background-size: cover;
 }
 
 .item-4 {
-  background: url("../images/test-image3.jpg");
   background-size: cover;
 }
 
 .item-5 {
-  background: url("../images/test-image3.jpg");
   background-size: cover;
 }
 
