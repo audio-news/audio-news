@@ -134,7 +134,7 @@ h4 {
   position: relative;
   width: 800px;
   display: block;
-  margin: 50px auto;
+  margin: 20px auto 50px auto;
   border: 2px solid rgb(0, 0, 0);
 }
 
