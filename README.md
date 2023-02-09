@@ -48,7 +48,8 @@ If you scroll down to the headline section you will see top stories for each spe
 
 ## Video Tutorial
 
-![A video tutorial of the website in action](assets/images/audio-news-tutorial.mp4)
+Bellow is a link to a video displaying a breakdown of how to operate Audio News website
+https://user-images.githubusercontent.com/100619060/217940242-f90744a7-8333-45af-853c-f24cf3ff65b6.mp4
 
 ## Built With
 
